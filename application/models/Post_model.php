@@ -10,17 +10,37 @@ class Post_model extends CI_Model
     {                        
         $qr = $this->db->query("SELECT * from post")->result_array();
         return $qr;
-    } 
+    }
+
+    public function getPostById($id)
+    {                        
+        $where = array( 'id' => $id);
+        $qr = $this->db->get_where('post', $where )->result_array();           
+        return $qr;
+    }
     
-    public function setPost($name)
+    public function getPostLatestPage($index)
+    {                        
+        $qr = $this->db->query("SELECT * from post order by created_date limit ".$index." ")->result_array();
+        return $qr;
+    }
+    
+    public function createPost($data)
     {                                
-        $qr = $this->db->query("INSERT INTO category(name) values('".$name."')");
+        $qr = $this->db->insert('post', $data);
         return $qr;
     } 
 
-    public function deletePost($name)
+    public function updatePost($id ,$data)
+    {                               
+        $this->db->where('id', $id);
+        $qr = $this->db->update('post', $data);         
+        return $qr;
+    } 
+
+    public function deletePost($data)
     {                        
-        $qr = $this->db->query("DELETE FROM category WHERE name = '".$name."'");
+        $qr = $this->db->delete("post", $data);
         return $qr;
     } 
 }

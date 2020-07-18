@@ -3,11 +3,11 @@ class Auth_model extends CI_Model
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct();        
     }
     
     public function loginAuth($username,$password)
-    {        
+    {                
         $password = hash('sha256', $password);
         $where = array( 'username' => $username, 'password' => $password );
         $qr = $this->db->get_where('user', $where )->result_array();        

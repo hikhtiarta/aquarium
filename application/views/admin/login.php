@@ -15,7 +15,7 @@ $this->load->view('dist/_partials/header');
               <div class="card-body">
                 <form method="POST" action="<?= $this->config->item('base_url') ?>admin/do_login" class="needs-validation" novalidate="">
                   <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Username <?= $this->session->userdata('is_login') ?></label>
                     <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
                     <div class="invalid-feedback">
                       Please fill in your username
