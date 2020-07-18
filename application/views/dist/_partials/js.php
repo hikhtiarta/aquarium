@@ -111,7 +111,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "features_post_create") { ?>
+}elseif ($this->uri->segment(2) == "post_create") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>

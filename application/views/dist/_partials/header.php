@@ -94,7 +94,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "auth_register") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/jquery-selectric/selectric.css">
 <?php
-}elseif ($this->uri->segment(2) == "features_post_create") { ?>
+}elseif ($this->uri->segment(2) == "post_create") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/jquery-selectric/selectric.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
@@ -137,7 +137,7 @@ if ($this->uri->segment(2) == "layout_transparent") {
 }elseif ($this->uri->segment(2) == "layout_top_navigation") {
   $this->load->view('dist/_partials/layout-3');
   $this->load->view('dist/_partials/navbar');
-}elseif ($this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "auth_forgot_password"&& $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password" && $this->uri->segment(2) != "errors_503" && $this->uri->segment(2) != "errors_403" && $this->uri->segment(2) != "errors_404" && $this->uri->segment(2) != "errors_500" && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
+}elseif ($this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "login" && $this->uri->segment(2) != "auth_forgot_password"&& $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password" && $this->uri->segment(2) != "errors_503" && $this->uri->segment(2) != "errors_403" && $this->uri->segment(2) != "errors_404" && $this->uri->segment(2) != "errors_500" && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar');
 }
