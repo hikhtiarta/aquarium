@@ -11,14 +11,10 @@ class Admin extends CI_Controller {
 
 	public function index() {
 		if($this->session->userdata('is_login') != 1) redirect('admin/login');
-		else redirect('admin/dashboard');
-		
+		else redirect('admin/dashboard');		
 	}
 	
-	public function login() {
-		if($this->session->userdata('is_login') != 1) redirect('admin/login');
-		else redirect('admin/dashboard');
-
+	public function login() {				
 		$data = array(
 			'title' => "Login"
 		);

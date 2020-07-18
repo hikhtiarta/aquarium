@@ -14,10 +14,7 @@ $this->load->view('./dist/_partials/header');
             <div class="row">
               <div class="col-12">
                 <div class="card">
-                  <div class="card-header">
-                    <h4>Write Your Post</h4>
-                  </div>
-                  <div class="card-body">
+                  <div class="card-body mt-5">
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                       <div class="col-sm-12 col-md-7">
