@@ -90,7 +90,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/sweetalert/sweetalert.min.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "modules_owl_carousel") { ?>
+}elseif ($this->uri->segment(2) == "page_home") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "modules_sparkline") { ?>
@@ -121,7 +121,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "features_posts") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "features_profile") { ?>
+}elseif ($this->uri->segment(2) == "page_about") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "features_setting_detail") { ?>
@@ -204,7 +204,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "modules_ion_icons") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "modules_owl_carousel") { ?>
+}elseif ($this->uri->segment(2) == "page_home") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-slider.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "modules_sparkline") { ?>

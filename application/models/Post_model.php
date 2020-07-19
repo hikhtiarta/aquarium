@@ -24,6 +24,12 @@ class Post_model extends CI_Model
         $qr = $this->db->query("SELECT * from post order by created_date limit ".$index." ")->result_array();
         return $qr;
     }
+      
+    public function getPostByLikes()
+    {                        
+        $qr = $this->db->query("SELECT * from post order by likes DESC limit 6")->result_array();
+        return $qr;
+    }
     
     public function createPost($data)
     {                                
@@ -43,5 +49,21 @@ class Post_model extends CI_Model
         $qr = $this->db->delete("post", $data);
         return $qr;
     } 
+
+    public function setLikes($id, $data)
+    {                        
+        $this->db->where('id', $id);
+        $qr = $this->db->update('post', $data);         
+        return $qr;
+    } 
+
+    public function setShare($id, $data)
+    {                        
+        $this->db->where('id', $id);
+        $qr = $this->db->update('post', $data);         
+        return $qr;
+    } 
+
+    
 }
 ?>

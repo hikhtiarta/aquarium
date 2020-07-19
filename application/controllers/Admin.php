@@ -31,11 +31,34 @@ class Admin extends CI_Controller {
 
 	public function dashboard() {
 		$this->load->model('Post_model');
+		$date = new DateTime();
+		$date = $date->format('d - m - Y');
 		$data = array(
 			'title' => "Dashboard",
 			'postList' => count($this->Post_model->getPost()),
+			'date' => $date,
+			'postinganList' => $this->Post_model->getPostByLikes()
 		);
 		$this->load->view('admin/dashboard', $data);
+	}
+
+	public function page_about() {
+		$this->load->model('User_model');
+		$qr = $this->User_model->getuser()[0];
+		$data = array(
+			'title' => "About",			
+			'user' => $qr
+		);
+		$this->load->view('admin/page_about', $data);
+	}
+
+	public function page_home() {	
+		$this->load->model('Banner_model');			
+		$data = array(
+			'title' => "Home",
+			'bannerList' => $this->Banner_model->getBanner(),
+		);
+		$this->load->view('admin/page_home', $data);
 	}
 
 	public function utilities_jenis() {
@@ -207,6 +230,57 @@ class Admin extends CI_Controller {
 		$this->load->model('Post_model');
 		$res = array('result' => 1, 'data' => $this->Post_model->getPost());
 		echo json_encode($res);
+	}
+
+	public function do_set_user(){
+		$this->load->model('User_model');
+		$name = $this->input->post('name');
+		$tokoName = $this->input->post('toko_name');
+		$email = $this->input->post('email');
+		$phone = $this->input->post('phone');
+		$address = $this->input->post('address');
+		$bio = $this->input->post('bio');		
+		$data = array(
+			'name' => $name,
+			'toko_name' => $tokoName,
+			'email' => $email,
+			'phone' => $phone,
+			'address' => $address,
+			'bio' => $bio
+		);
+		if($this->User_model->updateUser(1, $data)){
+			redirect('admin/dashboard');
+		}
+	}	
+
+	public function do_create_banner(){			
+		$this->load->model('Banner_model');		
+		$url = $this->input->post('url');	
+		$lastId = $this->Banner_model->getBanner();	
+		if(count($lastId) != 0)	$lastId = $lastId[count($lastId)-1]['id'] + 1;
+		else $lastId = 1;			
+		
+		if($_FILES['banner']['name'] != null){
+			$target_dir = "assets/img/banner/";
+			$fileName = $lastId . "_" . basename($_FILES["banner"]["name"]);
+			$target_file = $target_dir . $fileName;
+			$uploadOk = 1;
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));		
+			$check = getimagesize($_FILES["banner"]["tmp_name"]);
+			if($check !== false) {	
+				move_uploaded_file($_FILES["banner"]["tmp_name"], $target_file);
+				$data = array(
+					'url' => $url,					
+					'img' => $fileName,
+				);
+				if($this->Banner_model->createBanner($data)){
+					redirect(site_url('admin/dashboard'));
+				}
+			} else {
+				echo "File is not an image.";
+				$uploadOk = 0;
+			}
+		}														
 	}
 
 	public function do_logout(){

@@ -102,10 +102,14 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "features_posts") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/jquery-selectric/selectric.css">
 <?php
-}elseif ($this->uri->segment(2) == "features_profile") { ?>
+}elseif ($this->uri->segment(2) == "page_home") { ?>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
+<?php 
+}elseif ($this->uri->segment(2) == "page_about") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-social/bootstrap-social.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
-<?php
+<?php 
 }elseif ($this->uri->segment(2) == "features_setting_detail") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/codemirror/theme/duotone-dark.css">
@@ -131,7 +135,13 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <!-- /END GA --></head>
 
 <?php
-if ($this->uri->segment(2) != "auth_login" && $this->uri->segment(2) != "login" && $this->uri->segment(2) != "auth_forgot_password"&& $this->uri->segment(2) != "auth_register" && $this->uri->segment(2) != "auth_reset_password" && $this->uri->segment(2) != "errors_503" && $this->uri->segment(2) != "errors_403" && $this->uri->segment(2) != "errors_404" && $this->uri->segment(2) != "errors_500" && $this->uri->segment(2) != "utilities_contact" && $this->uri->segment(2) != "utilities_subscribe") {
+if ($this->uri->segment(2) == "dashboard" || 
+    $this->uri->segment(2) == "login" ||  
+    $this->uri->segment(2) == "page_about" || 
+    $this->uri->segment(2) == "page_home" ||  
+    $this->uri->segment(2) == "post_create" || 
+    $this->uri->segment(2) == "post_list" || 
+    $this->uri->segment(2) == "utilities_jenis" ) {
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar');
 }

@@ -18,7 +18,7 @@ $this->load->view('dist/_partials/header');
                       <table class="table table-striped" id="table-2">
                         <thead>
                           <tr>                            
-                            <th>Title</th>
+                            <th style="width: 300px;">Title</th>
                             <th>Category</th>
                             <th>Likes</th>
                             <th>Share</th>
