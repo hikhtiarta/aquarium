@@ -17,30 +17,16 @@ $this->load->view('./dist/_partials/header');
                     <input type="text" name="post" hidden value="<?php if($dataPost != null) echo $dataPost['id']?>" />
                     <div class="card-body mt-5">
                       <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul</label>
                         <div class="col-sm-12 col-md-7">
-                          <input name="title" type="text" class="form-control" required="" value="<?php if($dataPost != null) echo $dataPost['title']?>" />
+                          <input name="title" type="text" class="form-control" required="" value="<?php if($dataPost != null) echo $dataPost['title']?>"  autofocus/>
                           <div class="invalid-feedback">
-                              Title required
+                              Judul dibutuhkan
                           </div>
                         </div>
-                      </div>
+                      </div>                      
                       <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
-                        <div class="col-sm-12 col-md-7">                        
-                          <select name="category" class="form-control form-control-sm" style="text-transform: capitalize!important"  value="<?php if($dataPost != null) echo $dataPost['category']?>">
-                              <?php foreach($categoryList as $var){ ?>
-                                  <?php if($dataPost != null && $dataPost['category'] == $var['name']) { ?>
-                                    <option style="text-transform: capitalize!important"  selected><?= $var['name'] ?></option>
-                                  <?php }else { ?>
-                                    <option style="text-transform: capitalize!important"  ><?= $var['name'] ?></option>
-                                  <?php } ?>                                  
-                              <?php } ?>                                                                        
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row mb-4">
-                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Content</label>
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Konten</label>
                         <div class="col-sm-12 col-md-7">
                           <textarea name="content" class="summernote-simple"><?php if($dataPost != null) echo $dataPost['content']?></textarea>
                         </div>
@@ -69,7 +55,7 @@ $this->load->view('./dist/_partials/header');
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                         <div class="col-sm-12 col-md-7">
-                          <button class="btn btn-primary"><?php if($this->input->get('edit') == 'true') echo "Update Post"; else echo "Create Post"; ?></button>
+                          <button class="btn btn-primary"><?php if($this->input->get('edit') == 'true') echo "Update Post"; else echo "Buat Post"; ?></button>
                         </div>
                       </div>
                     </div>

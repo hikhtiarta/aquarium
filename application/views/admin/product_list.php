@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
+$this->load->helper('Currency_helper');
 ?>
       <!-- Main Content -->
       <div class="main-content">
@@ -22,24 +23,28 @@ $this->load->view('dist/_partials/header');
             <div class="row">
               <div class="col-12">
                 <div class="card">                  
-                  <div class="card-body">                  
+                  <div class="card-body">                    
                     <div class="table-responsive">
-                      <table class="table table-striped" id="table-2">
+                      <table class="table table-striped" id="table-3">
                         <thead>
                           <tr>                            
-                            <th style="width: 300px;">Judul</th>                            
-                            <th>Likes</th>
-                            <th>Share</th>
+                            <th style="width: 200px;">Nama Produk</th>                            
+                            <th>Kategori</th>
+                            <th style="width: 70px;">Harga (Rp)</th>
                             <th>Tanggal dibuat</th>
                             <th style="width: 120px;">Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($postList as $var){ ?>
+                            <?php foreach($productList as $var){ ?>
                                 <tr>                                                                
-                                    <td><?= $var['title'] ?></td>                                    
-                                    <td><?= $var['likes'] ?></td>
-                                    <td><?= $var['share'] ?></td>
+                                    <td><?= $var['name'] ?></td>                                    
+                                    <td>
+                                      <?php foreach(json_decode($var['category']) as $varx) {?>
+                                      <span class="badge badge-secondary mr-1"><?= $varx; ?></span>
+                                      <?php } ?>
+                                    </td>
+                                    <td><?= rupiah($var['price']) ?></td>
                                     <td>
                                       <?php
                                         $date = new DateTime($var['created_date']);
@@ -47,9 +52,9 @@ $this->load->view('dist/_partials/header');
                                       ?>
                                     </td>
                                     <td>
-                                        <a href="<?= base_url('admin/post_create?edit=true&post='.$var['id']) ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
-                                        <button postUrl="<?= base_url('admin/do_delete_post?post='.$var['id']) ?>" onclick="delPost(this, <?= $var['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        <a href="#" class="btn btn-info"><i class="fas fa-expand"></i></a>
+                                        <a href="<?= base_url('admin/product_create?edit=true&product='.$var['id'])?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                        <button productUrl="<?= base_url('admin/do_delete_product?product='.$var['id']) ?>" onclick="delProduct(this, <?= $var['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        <a href="#" class="btn btn-info"><i class="fas fa-expand"></i></a>                                        
                                     </td>
                                 </tr>                         
                             <?php } ?>                           

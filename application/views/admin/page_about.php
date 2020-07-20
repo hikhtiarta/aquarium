@@ -8,6 +8,16 @@ $this->load->view('dist/_partials/header');
           <div class="section-header">
             <h1><?= $title ?></h1>            
           </div>
+          <?php if($this->session->flashdata('error')){?>
+            <div class="alert alert-danger">
+              <?= $this->session->flashdata('error') ?>
+            </div>
+          <?php }?> 
+          <?php if($this->session->flashdata('success')){?>
+            <div class="alert alert-success">
+              <?= $this->session->flashdata('success') ?>
+            </div>
+          <?php }?>           
           <div class="section-body">           
             <div class="row mt-sm-4">             
               <div class="col-12 col-md-12 col-lg-12">

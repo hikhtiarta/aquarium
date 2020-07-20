@@ -8,7 +8,7 @@ class Post_model extends CI_Model
     
     public function getPost()
     {                        
-        $qr = $this->db->query("SELECT * from post")->result_array();
+        $qr = $this->db->query("SELECT * from post order by created_date DESC")->result_array();
         return $qr;
     }
 

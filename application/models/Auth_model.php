@@ -6,8 +6,7 @@ class Auth_model extends CI_Model
         parent::__construct();        
     }
     
-    public function loginAuth($username,$password)
-    {                
+    public function loginAuth($username,$password){                
         $password = hash('sha256', $password);
         $where = array( 'username' => $username, 'password' => $password );
         $qr = $this->db->get_where('user', $where )->result_array();        
@@ -21,6 +20,16 @@ class Auth_model extends CI_Model
         }else{
             return 0;
         }
-    }        
+    }      
+    
+    public function changePassword($password){
+        $password = hash('sha256', $password);
+        $data = array(
+            "id" => 1,
+            "password" => $password
+        );        
+        $qr = $this->db->update('user', $data);
+        return $qr;
+    }
 }
 ?>

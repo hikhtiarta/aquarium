@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title><?php echo $title; ?> &mdash; Stisla</title>
+  <title><?php echo $title; ?> &mdash; Aquawabisabi</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap/css/bootstrap.min.css">
@@ -64,7 +64,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "modules_calendar") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/fullcalendar/fullcalendar.min.css">
 <?php
-}elseif ($this->uri->segment(2) == "post_list") { ?>
+}elseif ($this->uri->segment(2) == "post_list" || $this->uri->segment(2) == "product_list") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/datatables/datatables.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
@@ -94,9 +94,10 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "auth_register") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/jquery-selectric/selectric.css">
 <?php
-}elseif ($this->uri->segment(2) == "post_create") { ?>
+}elseif ($this->uri->segment(2) == "post_create" || $this->uri->segment(2) == "product_create") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/jquery-selectric/selectric.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/select2/dist/css/select2.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 <?php
 }elseif ($this->uri->segment(2) == "features_posts") { ?>
@@ -135,13 +136,14 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <!-- /END GA --></head>
 
 <?php
-if ($this->uri->segment(2) == "dashboard" || 
-    $this->uri->segment(2) == "login" ||  
+if ($this->uri->segment(2) == "dashboard" ||     
     $this->uri->segment(2) == "page_about" || 
     $this->uri->segment(2) == "page_home" ||  
     $this->uri->segment(2) == "post_create" || 
     $this->uri->segment(2) == "post_list" || 
-    $this->uri->segment(2) == "utilities_jenis" ) {
+    $this->uri->segment(2) == "product_create" || 
+    $this->uri->segment(2) == "product_list" || 
+    $this->uri->segment(2) == "utilities_category" ) {
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar');
 }

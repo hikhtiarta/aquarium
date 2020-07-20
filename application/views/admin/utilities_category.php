@@ -12,9 +12,9 @@ $this->load->view('./dist/_partials/header');
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="card">
-                        <form class="needs-validation" novalidate="" method="POST" action="<?= $this->config->item('base_url') ?>admin/do_jenis_set">
+                        <form class="needs-validation" novalidate="" method="POST" action="<?= $this->config->item('base_url') ?>admin/do_category_add">
                         <div class="card-header">
-                            <h4>Tambah Jenis Postingan</h4>
+                            <h4>Tambah Kategori Produk</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
@@ -33,16 +33,16 @@ $this->load->view('./dist/_partials/header');
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="card">
-                        <form class="needs-validation" novalidate="" method="POST" action="<?= $this->config->item('base_url') ?>admin/do_jenis_del">
+                        <form class="needs-validation" novalidate="" method="POST" action="<?= $this->config->item('base_url') ?>admin/do_category_del">
                         <div class="card-header">
-                            <h4>Hapus Jenis Postingan</h4>
+                            <h4>Hapus Kategori Produk</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Nama</label>
-                                <select name="namedel" class="form-control form-control-sm" style="text-transform: capitalize">
+                                <select name="namedel" class="form-control form-control-sm">
                                     <?php foreach($categoryList as $var){ ?>
-                                        <option style="text-transform: capitalize"><?= $var['name'] ?></option>
+                                        <option ><?= $var['name'] ?></option>
                                     <?php } ?>                                                                        
                                 </select>
                             </div>                

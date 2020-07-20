@@ -1,23 +1,23 @@
 "use strict";
 
-function delPost(obj){
+function delProduct(obj){
   swal({
     title: 'Are you sure?',
-    text: 'Sekali dihapus, postingan tidak dapat dikembalikan kembali!',
+    text: 'Sekali dihapus, produk tidak dapat dikembalikan kembali!',
     icon: 'warning',
     buttons: true,
     dangerMode: true,
   })
   .then((willDelete) => {
     if (willDelete) {
-      swal('Postingan berhasil dihapus', {
+      swal('Produk berhasil dihapus', {
         icon: 'success',
       }).then(values => {                                
-        var url = $(obj).attr("postUrl")        
+        var url = $(obj).attr("productUrl")        
         window.location.href = url;
       });        
     } else {
-      swal('Postingan gagal dihapus');
+      swal('Produk gagal dihapus');
     }
   });
 }
