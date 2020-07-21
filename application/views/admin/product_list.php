@@ -52,9 +52,9 @@ $this->load->helper('Currency_helper');
                                       ?>
                                     </td>
                                     <td>
-                                        <a href="<?= base_url('admin/product_create?edit=true&product='.$var['id'])?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="<?= base_url('admin/product_create?edit=true&url='.$var['url'].'&product='.$var['id'])?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                         <button productUrl="<?= base_url('admin/do_delete_product?product='.$var['id']) ?>" onclick="delProduct(this, <?= $var['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        <a href="#" class="btn btn-info"><i class="fas fa-expand"></i></a>                                        
+                                        <a href="<?= base_url('products/'.$var['url']) ?>" class="btn btn-info"><i class="fas fa-expand"></i></a>                                        
                                     </td>
                                 </tr>                         
                             <?php } ?>                           

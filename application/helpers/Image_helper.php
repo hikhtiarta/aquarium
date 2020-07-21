@@ -15,6 +15,31 @@ if ( ! function_exists('image_conv'))
     }   
 }
 
+if ( ! function_exists('image_conv_multiple'))
+{
+    function image_conv_multiple($data)
+    {           
+        $localImg = [];
+        $ext = [];
+        $hashName = [];
+        for($i = 0; $i<count($data['name']); $i++){
+            if(!getimagesize($data['tmp_name'][$i])){
+                return false;
+            }
+            array_push($localImg,$data['tmp_name'][$i]);
+            $extX = array_push($ext, pathinfo($data['name'][$i])['extension']);
+            $hashNameX = v4() . "." . pathinfo($data['name'][$i])['extension'];
+            array_push($hashName, $hashNameX);
+        }                           
+        $new = array(
+            'localImg' => $localImg,
+            'ext' => $ext,
+            'name' => $hashName
+        );
+        return $new;
+    }   
+}
+
 function v4() {
     return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 

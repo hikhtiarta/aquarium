@@ -28,14 +28,17 @@ $this->load->view('./dist/_partials/header');
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kategori Produk</label>
                         <div class="col-sm-12 col-md-7">
-                          <select class="form-control select2" multiple="" name="category[]">
+                          <select class="form-control select2" multiple="" name="category[]" required="">
                             <?php foreach($categoryList as $var){ 
                               if(in_array($var['name'], json_decode($dataProduct['category']))) { ?>                              
                                 <option  selected><?= $var['name'] ?></option>
                               <?php }else { ?>  
                                 <option ><?= $var['name'] ?></option>
                             <?php } } ?>  
-                          </select>                          
+                          </select>
+                          <small class="form-text text-muted">
+                            Tidak boleh mengisi nama kategori yang tidak terdaftar didalam daftar kategori
+                          </small>                          
                         </div>
                       </div>                        
                       <div class="form-group row mb-4">
@@ -58,22 +61,23 @@ $this->load->view('./dist/_partials/header');
                         <div class="col-sm-12 col-md-7">
                           <div id="image-preview" class="image-preview">
                             <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" name="img" id="image-upload" />
+                            <input type="file" name="img[]" id="image-upload" multiple accept=".jpg,.jpeg,.png" onchange="loadFile(event)"/>
                           </div>
                         </div>
                       </div>
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Preview Thumbnail</label>
-                        <div class="col-sm-12 col-md-7">
-                          <div id="image-preview" class="image-preview text-center">
-                            <?php if($dataProduct != null) {?>
-                              <img src=" <?= base_url('assets/img/uploads/products/'.$dataProduct['img'])?>" style="max-height: 100%; max-width: 100%;"/>
-                            <?php }else {?>
-                              <img src="<?php if(isset($_FILES['img'])) echo $_FILES['img']['name']?>" style="max-height: 100%; max-width: 100%;"/>
-                            <?php }?>                            
-                          </div>
+                        <div class="col-sm-12 col-md-7" id="image-output">                          
+                          <?php if($dataProduct != null){ ?>
+                            <div class="gallery">
+                              <?php foreach(json_decode($dataProduct['img']) as $var) { ?>                              
+                                <div class="gallery-item" data-image="<?php echo base_url('img/product/'.$var); ?>" data-title="<?= $var ?>"></div>
+                            <?php } ?> </div> <?php  } else{ ?>                         
+                            <img width="50" height="50" class="mr-2 mb-2" src="<?php echo base_url(); ?>assets/img/news/img01.jpg" />
+                            <img width="50" height="50" class="mr-2 mb-2" src="<?php echo base_url(); ?>assets/img/news/img02.jpg" />
+                          <?php } ?>    
                         </div>
-                      </div>                                             
+                      </div>                                       
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                         <div class="col-sm-12 col-md-7">

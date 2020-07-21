@@ -16,7 +16,13 @@ class Banner_model extends CI_Model
     {                                
         $qr = $this->db->insert('banner', $data);
         return $qr;
-    }     
+    }  
+    
+    public function deleteBanner($data)
+    {                                
+        $qr = $this->db->delete('banner', $data);
+        return $qr;
+    }  
 
 }
 ?>

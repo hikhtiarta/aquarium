@@ -21,12 +21,12 @@ $this->load->view('./dist/_partials/header');
                                 <label>Nama</label>
                                 <input name="name" type="text" class="form-control" required="">
                                 <div class="invalid-feedback">
-                                    Nama required
+                                    Nama Dibutuhkan!
                                 </div>
                             </div>                    
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Add</button>
+                            <button class="btn btn-primary">Tambah</button>
                         </div>
                         </form>
                     </div>
@@ -48,7 +48,7 @@ $this->load->view('./dist/_partials/header');
                             </div>                
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-danger">Hapus</button>
                         </div>
                         </form>
                     </div>

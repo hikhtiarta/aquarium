@@ -6,6 +6,8 @@ class Admin extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
+		$this->load->helper('UrlTitle_helper');
+		date_default_timezone_set("Asia/Jakarta");
 		if ($this->session->userdata('is_login') == null || $this->session->userdata('is_login') != 1) {
 			// Prevent infinite loop by checking that this isn't the login controller               
 			if ($this->uri->segment(2) != 'login' && $this->uri->segment(2) != 'do_login') {
@@ -154,7 +156,7 @@ class Admin extends CI_Controller {
 
 	public function do_category_add() {
 		$this->load->model('Util_model');
-		$this->Util_model->setCategory($_POST['name']);
+		$this->Util_model->setCategory(ucwords($_POST['name']));
 		redirect('admin/utilities_category');
 				
 	}
@@ -183,90 +185,128 @@ class Admin extends CI_Controller {
 
 	public function do_create_post(){		
 		$this->load->model('Post_model');
+		$this->load->helper('Image_helper');
 		$content = $this->input->post('content');
-		$title = $this->input->post('title');		
-		$lastId = $this->Post_model->getPost();	
-		if(count($lastId) != 0)	$lastId = $lastId[count($lastId)-1]['id'] + 1;
-		else $lastId = 1;			
-		
-		if($_FILES["thumbnail"]['name']!=null){
-			$target_dir = "assets/img/uploads/";
-			$fileName = $lastId . "_" . basename($_FILES["thumbnail"]["name"]);
-			$target_file = $target_dir . $fileName;
-			$uploadOk = 1;
-			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));		
-			$check = getimagesize($_FILES["thumbnail"]["tmp_name"]);
-			if($check !== false) {	
-				move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file);
+		$title = $this->input->post('title');	
+		$url = create_url($title);		
+		$date = new DateTime();		
+		if(count($this->Post_model->getUrl($url)) == 0){			
+			if($_FILES["thumbnail"]['name'][0]!=null){				
+				$image = image_conv_multiple($_FILES['thumbnail']);					
+				if(!$image) {
+					$this->session->set_flashdata("error", "Hanya gambar yang dapat diupload!");
+					redirect(site_url('admin/post_list'));	
+					die;
+				}
+
+				$pathImage = date('Y') . "/" . date('m') . "/" . date('d') . "/";
+				$target_dir = "img/post/". $pathImage;
+				if (!file_exists($target_dir)) {
+					mkdir($target_dir, 0755, true);
+				}
+
+				for($i = 0; $i<count($image['name']); $i++){					
+					move_uploaded_file($image['localImg'][$i], ($target_dir . $image['name'][$i]));	
+					$image['name'][$i] = $pathImage . $image['name'][$i];
+				}
 				$data = array(
 					'title' => $title,					
 					'content' => $content,
-					'thumbnail' => $fileName,
+					'thumbnail' => json_encode($image['name']),
+					'url' => $url,
+
 				);
 				if($this->Post_model->createPost($data)){
 					$this->session->set_flashdata("success", "Post berhasil ditambahkan!");
 					redirect(site_url('admin/post_list'));
 				}
-			} else {
-				echo "File is not an image.";
-				$uploadOk = 0;
+			}else{
+				$data = array(
+					'title' => $title,				
+					'content' => $content,
+					'thumbnail' => null,
+					'url' => $url,
+				);
+				if($this->Post_model->createPost($data)){
+					$this->session->set_flashdata("success", "Post berhasil ditambahkan!");
+					redirect(site_url('admin/post_list'));
+				}
 			}
 		}else{
-			$data = array(
-				'title' => $title,				
-				'content' => $content,
-				'thumbnail' => null,
-			);
-			if($this->Post_model->createPost($data)){
-				$this->session->set_flashdata("success", "Post berhasil ditambahkan!");
-				redirect(site_url('admin/post_list'));
-			}
-		}																
+			$this->session->set_flashdata("error", "Postingan telah ada/sama, silahkan ganti judul postingan!");
+			redirect(site_url('admin/post_list'));
+		}																		
 	}
 
 	public function do_update_post(){		
 		$this->load->model('Post_model');
+		$this->load->helper('Image_helper');
 		$content = $this->input->post('content');
 		$title = $this->input->post('title');		
-		$id = $this->input->post('post');
-		date_default_timezone_set("Asia/Jakarta");
+		$id = $this->input->post('post');		
 		$date = new DateTime();
 		$date = $date->format('Y-m-d H:i:s') . "\n";
-		if($_FILES["thumbnail"]['name']!=null){
-			$target_dir = "assets/img/uploads/";
-			$fileName = $id . "_" . basename($_FILES["thumbnail"]["name"]);
-			$target_file = $target_dir . $fileName;
-			$uploadOk = 1;
-			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));		
-			$check = getimagesize($_FILES["thumbnail"]["tmp_name"]);
-			
-			if($check !== false) {	
-				move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file);				
+		$url = create_url($title);
+		$status = 1;
+		if(count($this->Post_model->getUrlUpdate($url, $id)) == 1){
+			$status = 1;
+		}else{
+			if(count($this->Post_model->getUrl($url)) == 0){
+				$status = 1;
+			}else{
+				$status = 0;
+			}
+		}
+		if($status == 1){
+			if($_FILES["thumbnail"]['name'][0]!=null){
+				$image = image_conv_multiple($_FILES['thumbnail']);					
+				if(!$image) {
+					$this->session->set_flashdata("error", "Hanya gambar yang dapat diupload!");
+					redirect(site_url('admin/post_list'));	
+					die;
+				}
+
+				$pathImage = date('Y') . "/" . date('m') . "/" . date('d') . "/";
+				$target_dir = "img/post/". $pathImage;
+
+				if (!file_exists($target_dir)) {
+					mkdir($target_dir, 0755, true);
+				}
+
+				for($i = 0; $i<count($image['name']); $i++){					
+					move_uploaded_file($image['localImg'][$i], ($target_dir . $image['name'][$i]));		
+					$image['name'][$i] = $pathImage . $image['name'][$i];		
+				}
+
 				$data = array(
 					'title' => $title,					
 					'content' => $content,
-					'thumbnail' => $fileName,
-					'updated_date' => $date
+					'updated_date' => $date,
+					'thumbnail' => json_encode($image['name']),
+					'url' => $url,
+
+				);
+				if($this->Post_model->updatePost($id, $data)){
+					$this->session->set_flashdata("success", "Post berhasil disimpan!");
+					redirect(site_url('admin/post_list'));
+				}														
+			}else{
+				$data = array(
+					'title' => $title,				
+					'content' => $content,				
+					'updated_date' => $date,
+					'url' => $url
 				);
 				if($this->Post_model->updatePost($id, $data)){
 					$this->session->set_flashdata("success", "Post berhasil disimpan!");
 					redirect(site_url('admin/post_list'));
 				}
-			} else {
-				echo "File is not an image.";
-				$uploadOk = 0;
 			}
 		}else{
-			$data = array(
-				'title' => $title,				
-				'content' => $content,				
-				'updated_date' => $date
-			);
-			if($this->Post_model->updatePost($id, $data)){
-				$this->session->set_flashdata("success", "Post berhasil disimpan!");
-				redirect(site_url('admin/post_list'));
-			}
-		}																
+			$this->session->set_flashdata("error", "Postingan telah ada/sama, silahkan ganti judul postingan!");
+			redirect(site_url('admin/post_list'));
+		}
+																		
 	}
 
 	public function do_delete_post(){
@@ -302,32 +342,40 @@ class Admin extends CI_Controller {
 
 	public function do_create_banner(){			
 		$this->load->model('Banner_model');		
+		$this->load->helper('Image_helper')		;
 		$url = $this->input->post('url');	
 		$lastId = $this->Banner_model->getBanner();	
 		if(count($lastId) != 0)	$lastId = $lastId[count($lastId)-1]['id'] + 1;
 		else $lastId = 1;			
 		
 		if($_FILES['banner']['name'] != null){
-			$target_dir = "assets/img/banner/";
-			$fileName = $lastId . "_" . basename($_FILES["banner"]["name"]);
-			$target_file = $target_dir . $fileName;
-			$uploadOk = 1;
-			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));		
+			$target_dir = "img/banner/";
+			$image = image_conv($_FILES['banner']);									
 			$check = getimagesize($_FILES["banner"]["tmp_name"]);
 			if($check !== false) {	
-				move_uploaded_file($_FILES["banner"]["tmp_name"], $target_file);
+				move_uploaded_file($_FILES["banner"]["tmp_name"], ($target_dir . $image['name']));
 				$data = array(
 					'url' => $url,					
-					'img' => $fileName,
+					'img' => $image['name'],
 				);
 				if($this->Banner_model->createBanner($data)){
-					redirect(site_url('admin/dashboard'));
+					$this->session->set_flashdata("success", "Banner berhasil ditambahkan!");
+					redirect(site_url('admin/page_home'));
 				}
 			} else {
-				echo "File is not an image.";
-				$uploadOk = 0;
+				$this->session->set_flashdata("error", "Postingan telah ada/sama, silahkan ganti judul postingan!");
+				redirect(site_url('admin/page_home'));
 			}
 		}														
+	}
+
+	public function do_delete_banner(){
+		$this->load->model('Banner_model');
+		$banner = $this->input->post('bannerdel');
+		$data = array('id' => $banner);
+		if($this->Banner_model->deleteBanner($data)){			
+			redirect(site_url('admin/page_home'));
+		}
 	}
 
 	public function do_logout(){
@@ -342,39 +390,56 @@ class Admin extends CI_Controller {
 		$name= $this->input->post('name');		
 		$category = $this->input->post('category');	
 		$price= $this->input->post('price');			
-		
-		if($_FILES["img"]['name']!=null){
-			$target_dir = "assets/img/uploads/products/";
-			$image = image_conv($_FILES['img']);						
-			$check = getimagesize($image['localImg']);
-			if($check !== false) {	
-				move_uploaded_file($image['localImg'], ($target_dir . $image['name']));
+		$url = create_url($name);
+		if(count($this->Product_model->getUrl($url)) == 0){			
+			if($_FILES["img"]['name'][0]!=null){
+
+				$image = image_conv_multiple($_FILES['img']);					
+				if(!$image) {
+					$this->session->set_flashdata("error", "Hanya gambar yang dapat diupload!");
+					redirect(site_url('admin/product_list'));	
+					die;
+				}
+
+				$pathImage = date('Y') . "/" . date('m') . "/" . date('d') . "/";
+				$target_dir = "img/product/". $pathImage;
+				if (!file_exists($target_dir)) {
+					mkdir($target_dir, 0755, true);
+				}
+
+				for($i = 0; $i<count($image['name']); $i++){					
+					move_uploaded_file($image['localImg'][$i], ($target_dir . $image['name'][$i]));			
+					$image['name'][$i] = $pathImage . $image['name'][$i];	
+				}
 				$data = array(
 					'name' => $name,					
 					'description' => $description,
 					'price' => $price,
 					'category' => json_encode($category),
-					'img' => $image['name'],
+					'img' => json_encode($image['name']),
+					'url' => $url,
+				);
+				if($this->Product_model->createProduct($data)){
+					$this->session->set_flashdata("success", "Produk berhasil ditambahkan!");
+					redirect(site_url('admin/product_list'));
+				}				
+			}else{
+				$data = array(
+					'name' => $name,
+					'url' => $url,				
+					'description' => $description,
+					'price' => $price,
+					'category' => json_encode($category),
+					'img' => null,
 				);
 				if($this->Product_model->createProduct($data)){
 					$this->session->set_flashdata("success", "Produk berhasil ditambahkan!");
 					redirect(site_url('admin/product_list'));
 				}
-			} else {
-				echo "File is not an image.";				
 			}
 		}else{
-			$data = array(
-				'name' => $name,					
-				'description' => $description,
-				'price' => $price,
-				'category' => json_encode($category),
-				'img' => null,
-			);
-			if($this->Product_model->createProduct($data)){
-				$this->session->set_flashdata("success", "Produk berhasil ditambahkan!");
-				redirect(site_url('admin/product_list'));
-			}
+			$this->session->set_flashdata("error", "Produk telah ada/sama, silahkan ganti nama produk!");
+			redirect(site_url('admin/product_list'));
 		}																
 	}
 
@@ -385,43 +450,69 @@ class Admin extends CI_Controller {
 		$name= $this->input->post('name');		
 		$price= $this->input->post('price');		
 		$id = $this->input->post('product');
-		$category = $this->input->post('category');	
-		date_default_timezone_set("Asia/Jakarta");
+		$category = $this->input->post('category');			
 		$date = new DateTime();
 		$date = $date->format('Y-m-d H:i:s') . "\n";
-		if($_FILES["img"]['name']!=null){
-			$target_dir = "assets/img/uploads/products/";			
-			$image = image_conv($_FILES['img']);						
-			$check = getimagesize($image['localImg']);		
-			if($check !== false) {	
-				move_uploaded_file($image['localImg'], ($target_dir . $image['name']));			
+		$url = create_url($name);
+		$status = 1;
+		if(count($this->Product_model->getUrlUpdate($url, $id)) == 1){
+			$status = 1;
+		}else{
+			if(count($this->Product_model->getUrl($url)) == 0){
+				$status = 1;
+			}else{
+				$status = 0;
+			}
+		}
+		if($status == 1){
+			if($_FILES["img"]['name'][0]!=null){
+				$image = image_conv_multiple($_FILES['img']);					
+				if(!$image) {
+					$this->session->set_flashdata("error", "Hanya gambar yang dapat diupload!");
+					redirect(site_url('admin/product_list'));	
+					die;
+				}
+
+				$pathImage = date('Y') . "/" . date('m') . "/" . date('d') . "/";
+				$target_dir = "img/product/". $pathImage;
+				if (!file_exists($target_dir)) {
+					mkdir($target_dir, 0755, true);
+				}
+
+				for($i = 0; $i<count($image['name']); $i++){					
+					move_uploaded_file($image['localImg'][$i], ($target_dir . $image['name'][$i]));
+					$image['name'][$i] = $pathImage . $image['name'][$i];				
+				}
 				$data = array(
 					'name' => $name,					
 					'description' => $description,
 					'price' => $price,
-					'img' => $image['name'],
+					'category' => json_encode($category),
+					'img' => json_encode($image['name']),
+					'url' => $url,
+					'updated_date' => $date,
+				);						
+				if($this->Product_model->updateProduct($id, $data)){
+					$this->session->set_flashdata("success", "Produk berhasil disimpan!");
+					redirect(site_url('admin/product_list'));
+				}					
+			}else{
+				$data = array(
+					'name' => $name,					
+					'description' => $description,
+					'price' => $price,				
 					'updated_date' => $date,
 					'category' => json_encode($category),
+					'url' => $url
 				);
 				if($this->Product_model->updateProduct($id, $data)){
 					$this->session->set_flashdata("success", "Produk berhasil disimpan!");
 					redirect(site_url('admin/product_list'));
 				}
-			} else {
-				echo "File is not an image.";				
 			}
 		}else{
-			$data = array(
-				'name' => $name,					
-				'description' => $description,
-				'price' => $price,				
-				'updated_date' => $date,
-				'category' => json_encode($category),
-			);
-			if($this->Product_model->updateProduct($id, $data)){
-				$this->session->set_flashdata("success", "Produk berhasil disimpan!");
-				redirect(site_url('admin/product_list'));
-			}
+			$this->session->set_flashdata("error", "Produk telah ada/sama, silahkan ganti nama produk!");
+			redirect(site_url('admin/product_list'));
 		}																
 	}
 

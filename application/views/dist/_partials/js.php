@@ -91,8 +91,8 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/sweetalert/sweetalert.min.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "page_home") { ?>
-  <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
+}elseif ($this->uri->segment(2) == "page_home") { ?>  
+  <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat2.min.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "modules_sparkline") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery.sparkline.min.js"></script>
@@ -121,6 +121,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "features_posts") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
@@ -170,6 +171,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "product_create") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/forms-advanced-forms.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/imagePreview.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "gmaps_advanced_route") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/gmaps-advanced-route.js"></script>
@@ -201,6 +203,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "modules_chartjs") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-chartjs.js"></script>
 <?php
+}elseif ($this->uri->segment(2) == "post_create") { ?>  
+  <script src="<?php echo base_url(); ?>assets/js/page/imagePreview.js"></script>
+<?php
 }elseif ($this->uri->segment(2) == "post_list") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-datatables.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/post_list.js"></script>
@@ -214,6 +219,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "page_home") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-slider.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/imagePreview.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "modules_sparkline") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-sparkline.js"></script>

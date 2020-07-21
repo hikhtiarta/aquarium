@@ -64,6 +64,20 @@ class Product_model extends CI_Model
         return $qr;
     } 
 
+    public function getUrl($url){
+        $where = array( 'url' => $url);
+        $qr = $this->db->get_where('product', $where )->result_array();           
+        return $qr;
+    }
+    
+    public function getUrlUpdate($url, $id){        
+        $where = array( 
+            'url' => $url,
+            'id' => $id
+        );
+        $qr = $this->db->get_where('product', $where )->result_array();           
+        return $qr;
+    }
     
 }
 ?>

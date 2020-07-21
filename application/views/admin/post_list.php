@@ -49,7 +49,7 @@ $this->load->view('dist/_partials/header');
                                     <td>
                                         <a href="<?= base_url('admin/post_create?edit=true&post='.$var['id']) ?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                         <button postUrl="<?= base_url('admin/do_delete_post?post='.$var['id']) ?>" onclick="delPost(this, <?= $var['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        <a href="#" class="btn btn-info"><i class="fas fa-expand"></i></a>
+                                        <a href="<?= base_url('post/'.$var['url']) ?>" class="btn btn-info"><i class="fas fa-expand"></i></a>
                                     </td>
                                 </tr>                         
                             <?php } ?>                           
