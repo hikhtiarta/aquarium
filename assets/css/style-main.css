@@ -21,6 +21,27 @@
   display: -webkit-box;
 }
 
+.category-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto auto;  
+  padding: 80px 280px 80px 280px;
+}
+
+.products-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto auto auto auto;  
+  padding: 80px 280px 80px 280px;
+}
+
+.category-item, .products-item {    
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
 .products-title a{
   color: #222629;
 }

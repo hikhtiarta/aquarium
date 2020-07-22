@@ -173,6 +173,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/forms-advanced-forms.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/imagePreview.js"></script>
 <?php
+}elseif ($this->uri->segment(2) == "utilities_category") { ?>  
+  <script src="<?php echo base_url(); ?>assets/js/page/imagePreview.js"></script>
+<?php
 }elseif ($this->uri->segment(2) == "gmaps_advanced_route") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/gmaps-advanced-route.js"></script>
 <?php
