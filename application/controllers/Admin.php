@@ -34,12 +34,14 @@ class Admin extends CI_Controller {
 	public function dashboard() {
 		$this->load->model('Post_model');
 		$this->load->model('Product_model');
+		$this->load->model('Util_model');
 		$date = new DateTime();
 		$date = $date->format('d - m - Y');
 		$data = array(
 			'title' => "Dashboard",
 			'postList' => count($this->Post_model->getPost()),
 			'productList' => count($this->Product_model->getProduct()),
+			'categoryList' => count($this->Util_model->getCategory()),
 			'date' => $date,
 			'postListLikes' => $this->Post_model->getPostByLikes(),
 			'productListLikes' => $this->Product_model->getProductByLikes()
@@ -156,9 +158,30 @@ class Admin extends CI_Controller {
 
 	public function do_category_add() {
 		$this->load->model('Util_model');
-		$this->Util_model->setCategory(ucwords($_POST['name']));
-		redirect('admin/utilities_category');
-				
+		$this->load->helper('Image_helper');
+
+		if($_FILES['img']['name'] != null){
+			$target_dir = "img/category/";
+			$image = image_conv($_FILES['img']);									
+			$check = getimagesize($_FILES["img"]["tmp_name"]);
+			if($check !== false) {	
+				move_uploaded_file($_FILES["img"]["tmp_name"], ($target_dir . $image['name']));
+				$data = array(
+					'name' => ucwords($_POST['name']),					
+					'img' => $image['name'],
+				);
+				if($this->Util_model->setCategory($data)){
+					$this->session->set_flashdata("success", "Kategori berhasil ditambahkan!");
+					redirect(site_url('admin/utilities_category'));
+				}
+			} else {
+				$this->session->set_flashdata("error", "Hanya gambar yang dapat diupload!");
+				redirect(site_url('admin/utilities_category'));
+			}
+		}	
+
+		// $this->Util_model->setCategory(ucwords($_POST['name']));
+		// redirect('admin/utilities_category');				
 	}
 
 	public function do_category_del() {
@@ -343,10 +366,7 @@ class Admin extends CI_Controller {
 	public function do_create_banner(){			
 		$this->load->model('Banner_model');		
 		$this->load->helper('Image_helper')		;
-		$url = $this->input->post('url');	
-		$lastId = $this->Banner_model->getBanner();	
-		if(count($lastId) != 0)	$lastId = $lastId[count($lastId)-1]['id'] + 1;
-		else $lastId = 1;			
+		$url = $this->input->post('url');					
 		
 		if($_FILES['banner']['name'] != null){
 			$target_dir = "img/banner/";

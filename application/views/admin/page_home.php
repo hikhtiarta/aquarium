@@ -35,9 +35,16 @@ $this->load->view('dist/_partials/header');
                           <div class="form-group col-md-12 col-12">
                             <label>Gambar Banner</label>
                             <div class="custom-file">
-                                <input type="file" name="banner" class="custom-file-input" accept=".jpg,.jpeg,.png" id="customFile" onchange="loadFileBanner(event)"/>
-                                <label class="custom-file-label" for="customFile" id="banner-name">Choose file</label>
+                                <input type="file" name="banner" class="custom-file-input" accept=".jpg,.jpeg,.png" id="customFile" onchange="loadFileBanner(event)" required/>
+                                <label class="custom-file-label" for="customFile" id="banner-name">Pilih gambar</label>
+                                <div class="invalid-feedback mt-2">
+                                    Gambar banner dibutuhkan  
+                                </div> 
                             </div>
+                            
+                            <small class="form-text text-muted">
+                                Banner akan ditampilkan di halaman home, pastikan gambar dengan resolusi 2:1. cth: 960x480
+                            </small> 
                           </div>                          
                           <div class="form-group col-md-12 col-12">
                             <label>Url</label>

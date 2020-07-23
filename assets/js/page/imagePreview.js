@@ -12,3 +12,8 @@ function loadFileBanner(event) {
     $('#banner-name').html(data);     
 };
 
+function loadFileSingle(event) {            
+    var data = event.target.files['0']['name'];
+    $('#category-image').html(data);     
+};
+

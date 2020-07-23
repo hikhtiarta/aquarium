@@ -6,6 +6,7 @@ class Products extends CI_Controller {
     public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
+        $this->load->model('Util_model');
         $this->load->model('Product_model');
         $this->load->model('User_model');
         $qr = $this->User_model->getContact();
@@ -20,6 +21,8 @@ class Products extends CI_Controller {
             'phone' => $this->phone,
             'address' => $this->address,
             'email' => $this->email,
+            'productList' => $this->Product_model->getProductLatestPage(10),
+            'categoryList' => $this->Util_model->getCategory()
         );
         $this->load->view('pages/product',$data);   
     }

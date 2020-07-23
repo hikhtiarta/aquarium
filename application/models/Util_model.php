@@ -12,9 +12,9 @@ class Util_model extends CI_Model
         return $qr;
     } 
     
-    public function setCategory($name)
-    {                                
-        $qr = $this->db->query("INSERT INTO category(name) values('".$name."')");
+    public function setCategory($data)
+    {                                       
+        $qr = $this->db->insert('category', $data);
         return $qr;
     } 
 
