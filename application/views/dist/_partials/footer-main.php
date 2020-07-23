@@ -11,8 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p class="footer-title mb-2"><strong>Explore</strong></p>
             <a class="footer-link" href="<?= base_url() ?>">Home</a>
             <a class="footer-link" href="<?= base_url('products') ?>">Produk</a>
-            <a class="footer-link" href="<?= base_url('post') ?>">Post</a>
-            <a class="footer-link" href="<?= base_url('about') ?>">Tentang Kami</a>
+            <a class="footer-link" href="<?= base_url('post') ?>">Post</a>            
           </div>         
           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
             <p class="footer-title mb-2"><strong>Follow</strong></p>

@@ -21,10 +21,17 @@ class Products extends CI_Controller {
             'phone' => $this->phone,
             'address' => $this->address,
             'email' => $this->email,
-            'productList' => $this->Product_model->getProductLatestPage(10),
+            'productList' => $this->Product_model->getProductLatestPage(12),
             'categoryList' => $this->Util_model->getCategory()
         );
-        $this->load->view('pages/product',$data);   
+        $view = $this->input->get('view');
+        $page = $this->input->get('page');
+        if($view != null && $view == 'all'){
+            $data['productList'] = $this->Product_model->getProductLatestPage(20 * (int)$page);
+            $this->load->view('pages/product-all',$data);   
+        }else{
+            $this->load->view('pages/product',$data);   
+        }        
     }
 
     public function product_lookup_by_url(){
