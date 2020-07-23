@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/header-main');
           <div class="category-container">
             <?php foreach($categoryList as $var) {?>
               <div class="category-item">
-                <a href="<?= base_url('products/?category=' . $var['name'])?>" >
+                <a href="<?= base_url('products/?category=' . $var['name']) . '&page=1'?>" >
                   <img src="<?= base_url('img/category/' . $var['img']); ?>" style="width: 100%; height: 100%" />
                 </a>
               </div>

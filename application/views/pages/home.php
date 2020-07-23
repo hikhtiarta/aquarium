@@ -31,7 +31,59 @@ $this->load->view('dist/_partials/header-main');
               </div>
             </div>                                      
           </div>                
-        </section>
+        </section> 
+        <!-- End Of Slider -->
+
+        <div class="bg-white">
+          <div class="container py-5">
+            <div class="row h-100 align-items-center py-5">
+              <div class="col-lg-6">
+                <h1 class="display-5">Tentang Kita</h1>
+                <p class="lead mb-0 font-green">AQUA WABISABI</p>
+                <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>
+                </p>
+              </div>
+              <div class="col-lg-6 d-none d-lg-block"><img  src="<?php echo base_url('assets/img/about1.jpg')?>" alt="" class="img-fluid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white py-5">
+          <div class="container py-5">
+            <div class="row align-items-center mb-5">
+              <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+                <h2 class="font-weight-light font-green">Visi</h2>
+                <p class="font-italic text-muted mb-4"><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</b></p>
+              </div>
+              <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img class="rounded-circle about-img" src="<?php echo base_url('assets/img/about2.jpg')?>" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-lg-5 px-5 mx-auto font-green"><img class="rounded-circle about-img" src="<?php echo base_url('assets/img/about3.jpg')?>" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+              <div class="col-lg-6">
+                <h2 class="font-weight-light font-green">Misi</h2>
+                <p class="font-italic text-muted mb-4"> <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </b></p>
+              </div>
+               <div class="bg-white py-5">
+                <div class="container py-5">
+                  <div class="row align-items-center mb-5">
+                    <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+                      <h2 class="font-weight-light font-green">Nilai Perusahaan</h2>
+                      <p class="font-italic text-muted mb-4"> <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </b></p> 
+                    </div>
+                    <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img class="rounded-circle about-img" src="<?php echo base_url('assets/img/about4.jpg')?>"  alt="" class="img-fluid mb-4 mb-lg-0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- End of About Us -->
+
         <div class="separator" style="margin-right: 15px; margin-left: 15px">
           <div class="row">
             <?php foreach($productListLikes as $key=>$var) {?>      
@@ -52,6 +104,8 @@ $this->load->view('dist/_partials/header-main');
                       <div class="article-image" data-background="<?php echo base_url('img/product/'.json_decode($var['img'])[0]); ?>"></div>
                     </a>
                   </div>
+
+                  <!-- End Of Products -->
                   <div class="article-details">
                     <div class="article-category">
                       <?php
@@ -72,3 +126,4 @@ $this->load->view('dist/_partials/header-main');
         </section>
       </div>
 <?php $this->load->view('dist/_partials/footer-main'); ?>
+

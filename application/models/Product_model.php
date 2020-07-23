@@ -24,6 +24,12 @@ class Product_model extends CI_Model
         $qr = $this->db->query("SELECT * from product order by created_date limit ".$index." ")->result_array();
         return $qr;
     }
+
+    public function getProductByCategory($pages, $name)
+    {                        
+        $qr = $this->db->query("SELECT * from product where category like '%".$name."%' limit ".$pages." ")->result_array();
+        return $qr;
+    }
       
     public function getProductByLikes()
     {                        

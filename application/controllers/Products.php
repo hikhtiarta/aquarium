@@ -17,7 +17,7 @@ class Products extends CI_Controller {
 
     public function index(){
         $data = array(
-            'title' => "Product Page",            
+            'title' => ["Produk"],
             'phone' => $this->phone,
             'address' => $this->address,
             'email' => $this->email,
@@ -26,10 +26,18 @@ class Products extends CI_Controller {
         );
         $view = $this->input->get('view');
         $page = $this->input->get('page');
-        if($view != null && $view == 'all'){
-            $data['productList'] = $this->Product_model->getProductLatestPage(20 * (int)$page);
+        $category = $this->input->get('category');
+        if($view != null && $view == 'all'){ 
+            array_push($data['title'], "Semua Produk");
+            $data['productList'] = $this->Product_model->getProductLatestPage(15 * (int)$page);
             $this->load->view('pages/product-all',$data);   
-        }else{
+        }else if($category != null){
+            array_push($data['title'], 'Kategori');
+            array_push($data['title'], $category);
+            $data['productList'] = $this->Product_model->getProductByCategory(15 * (int)$page, $category);
+            $this->load->view('pages/product-all',$data);   
+        }
+        else{
             $this->load->view('pages/product',$data);   
         }        
     }
