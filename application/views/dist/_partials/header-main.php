@@ -13,13 +13,14 @@
 
   <!-- CSS Libraries -->
 <?php
-if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "home") { ?>
-  
+if ($this->uri->segment(1) == "products") { ?>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/chocolat/dist/css/chocolat.css">
 <?php
 }elseif ($this->uri->segment(2) == "about") { ?>
   
 <?php
-}elseif ($this->uri->segment(2) == "product") { ?>
+}elseif ($this->uri->segment(2) == "" || $this->uri->segment(2) == "home") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/chocolat/dist/css/chocolat.css">
 <?php
@@ -40,12 +41,12 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "home") { ?>
 <!-- /END GA --></head>
 
 <?php
-if ($this->uri->segment(2) == "" ||  
-    $this->uri->segment(2) == "home" ||    
-    $this->uri->segment(2) == "about" || 
-    $this->uri->segment(2) == "product" ||  
-    $this->uri->segment(2) == "post" ) {
+// if ($this->uri->segment(2) == "" ||  
+//     $this->uri->segment(2) == "home" ||    
+//     $this->uri->segment(2) == "about" || 
+//     $this->uri->segment(2) == "product" ||  
+//     $this->uri->segment(2) == "post" ||) {
   $this->load->view('dist/_partials/layout-main');
   $this->load->view('dist/_partials/sidebar-main');
-}
+// }
 ?>

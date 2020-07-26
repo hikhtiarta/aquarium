@@ -9,7 +9,7 @@ $this->load->view('dist/_partials/header-main');
           <div class="category-container">
             <?php foreach($categoryList as $var) {?>
               <div class="category-item">
-                <a href="<?= base_url('products/?category=' . $var['name']) . '&page=1'?>" >
+                <a href="<?= base_url('products/category/' . $var['name']) . '/1'?>" >
                   <img src="<?= base_url('img/category/' . $var['img']); ?>" style="width: 100%; height: 100%" />
                 </a>
               </div>
@@ -34,7 +34,7 @@ $this->load->view('dist/_partials/header-main');
             </div>
           </div>
           <div class="products-view-all-btn">
-            <a href="<?= base_url("products/?view=all&page=1") ?>" >Lihat semua produk</a>
+            <a href="<?= base_url("products/all/1") ?>" >Lihat semua produk</a>
           </div>          
         </section>        
       </div>

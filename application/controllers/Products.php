@@ -23,27 +23,49 @@ class Products extends CI_Controller {
             'email' => $this->email,
             'productList' => $this->Product_model->getProductLatestPage(12),
             'categoryList' => $this->Util_model->getCategory()
-        );
-        $view = $this->input->get('view');
-        $page = $this->input->get('page');
-        $category = $this->input->get('category');
-        if($view != null && $view == 'all'){ 
-            array_push($data['title'], "Semua Produk");
-            $data['productList'] = $this->Product_model->getProductLatestPage(15 * (int)$page);
-            $this->load->view('pages/product-all',$data);   
-        }else if($category != null){
-            array_push($data['title'], 'Kategori');
-            array_push($data['title'], $category);
-            $data['productList'] = $this->Product_model->getProductByCategory(15 * (int)$page, $category);
-            $this->load->view('pages/product-all',$data);   
-        }
-        else{
-            $this->load->view('pages/product',$data);   
-        }        
+        );        
+        $this->load->view('pages/product',$data);
+    }
+
+    public function all(){
+        $data = array(
+            'title' => ["Produk"],
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'email' => $this->email,            
+        ); 
+        $page = $this->uri->segment(3);
+        array_push($data['title'], "Semua Produk");
+        $data['productList'] = $this->Product_model->getProductLatestPage(15 * (int)$page);
+        $this->load->view('pages/product-all',$data);   
+    }
+
+    public function category(){
+        $data = array(
+            'title' => ["Produk"],
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'email' => $this->email,   
+            'category' => $this->uri->segment(3),
+        ); 
+        $nameCategory = $this->uri->segment(3);
+        $page = $this->uri->segment(4);
+        array_push($data['title'], 'Kategori');
+        array_push($data['title'], $nameCategory);
+        $data['productList'] = $this->Product_model->getProductByCategory(15 * (int)$page, $nameCategory);
+        $this->load->view('pages/product-all',$data);   
     }
 
     public function product_lookup_by_url(){
-        var_dump($this->Product_model->getUrl($this->uri->segment(2)));
+        $this->load->helper('Currency_helper');
+        $data = array(
+            'title' => ["Produk"],
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'email' => $this->email,   
+            'product' => $this->Product_model->getUrl($this->uri->segment(2))[0]
+        );                 
+        $this->load->view('pages/product-detail',$data);        
     }
 
 }

@@ -21,21 +21,36 @@ $this->load->view('dist/_partials/header-main');
               <?php }?>      
             </div>
           </div>
-          <nav aria-label="..." class="pagination-container">
-            <ul class="pagination">
-              <li class="page-item <?php if($this->input->get('page') == 1 || $this->input->get('page') == 2 || $this->input->get('page') == 3) echo 'disabled'; ?>">
-                <a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">«</span></a>
-              </li>
-
-              <?php for($i = 1; $i<=3; $i++){ if($this->input->get('page') == $i) {?>
-                <li class="page-item active"><a class="page-link" href="<?= base_url('products/?view=all&page='. $i) ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>  
-              <?php }else { ?>  
-                <li class="page-item"><a class="page-link" href="<?= base_url('products/?view=all&page='. $i) ?>"><?= $i ?></a></li>  
-              <?php }} ?>              
-              <li class="page-item">
-                <a class="page-link" href="#"><span aria-hidden="true">»</span></a>
-              </li>
-            </ul>
+          <nav aria-label="..." class="pagination-container <?= $this->uri->segment(3) ?>">
+            <?php if($this->uri->segment(2) == 'category'){ ?>
+              <ul class="pagination">
+                <li class="page-item <?php if($this->uri->segment(4) == 1 || $this->uri->segment(4) == 2 || $this->uri->segment(4) == 3) echo 'disabled'; ?>">
+                  <a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">«</span></a>
+                </li>
+                <?php for($i = 1; $i<=3; $i++){ if($this->uri->segment(4) == $i) {?>
+                  <li class="page-item active"><a class="page-link" href="<?= base_url('products/category/'. $category . "/" . $i) ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>  
+                <?php }else { ?>  
+                  <li class="page-item"><a class="page-link" href="<?= base_url('products/category/'. $category . "/" . $i) ?>"><?= $i ?></a></li>  
+                <?php }} ?>              
+                <li class="page-item">
+                  <a class="page-link" href="#"><span aria-hidden="true">»</span></a>
+                </li>
+              </ul>
+            <?php }else{ ?>
+              <ul class="pagination">
+                <li class="page-item <?php if($this->uri->segment(3) == 1 || $this->uri->segment(3) == 2 || $this->uri->segment(3) == 3) echo 'disabled'; ?>">
+                  <a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">«</span></a>
+                </li>
+                <?php for($i = 1; $i<=3; $i++){ if($this->uri->segment(3) == $i) {?>
+                  <li class="page-item active"><a class="page-link" href="<?= base_url('products/all/'. $i) ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>  
+                <?php }else { ?>  
+                  <li class="page-item"><a class="page-link" href="<?= base_url('products/all/'. $i) ?>"><?= $i ?></a></li>  
+                <?php }} ?>              
+                <li class="page-item">
+                  <a class="page-link" href="#"><span aria-hidden="true">»</span></a>
+                </li>
+              </ul>
+            <?php } ?>
           </nav>                   
         </section>        
       </div>

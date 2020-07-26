@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
   <!-- JS Libraies -->
 <?php
-if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
+if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index" || $this->uri->segment(1) == "products") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/jquery.sparkline.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>

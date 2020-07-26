@@ -161,9 +161,27 @@
   margin-top: 80px!important;
 }
 
-
 .mb-8{
   margin-bottom: 80px!important;
+}
+
+.product-detail-container{
+  padding: 80px 280px;  
+}
+
+.product-detail-title{  
+  overflow: hidden;    
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.product-detail-share{
+  display: inline-flex;
+}
+
+.share-icon i{
+  font-size: 20px;
 }
 
 .btn:focus,
