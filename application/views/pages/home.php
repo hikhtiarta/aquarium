@@ -10,12 +10,12 @@ $this->load->view('dist/_partials/header-main');
               <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <?php foreach($bannerList as $key=>$var) {?>                    
-                    <li data-target="#carouselExampleIndicators3" data-slide-to="<?= $key ?>" class="<?php if($key) echo "active"?>"></li>
+                    <li data-target="#carouselExampleIndicators3" data-slide-to="<?= $key ?>" class="<?php if($key == 0) echo "active"?>"></li>
                   <?php } ?>                                    
                 </ol>
                 <div class="carousel-inner">                  
                   <?php foreach($bannerList as $key=>$var) {?>
-                    <a href="<?= $var['url'] ?>" class="carousel-item <?php if($key) echo "active"?>">
+                    <a href="<?= $var['url'] ?>" class="carousel-item <?php if($key == 0) echo "active"?>">
                       <img class="d-block w-100" src="<?= base_url('img/banner/'.$var['img']) ?>" alt="Banner <?= $key+1 ?>">
                     </a>
                   <?php } ?>                  
@@ -111,17 +111,7 @@ $this->load->view('dist/_partials/header-main');
                   <img class="founder-img" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
               </div>
               </div>
-          </div>
-
-        <div class="separator" style="margin-right: 15px; margin-left: 15px">
-          <div class="row">
-            <?php foreach($productListLikes as $key=>$var) {?>      
-              <div class="col-12 col-sm-6 col-md-6 col-lg-3 pr-0 pl-0">
-                <img class="product-top" src="<?php echo base_url('img/product/'.json_decode($var['img'])[0]); ?>" />
-              </div>      
-            <?php } ?>            
-          </div> 
-        </div>
+          </div>        
         <section class="section-products">
           <h2 class="section-title text-center mb-8">Produk Terbaru</h2>          
           <div class="row">

@@ -27,7 +27,8 @@ class Product_model extends CI_Model
 
     public function getProductByCategory($pages, $name)
     {                        
-        $qr = $this->db->query("SELECT * from product where category like '%".$name."%' limit ".$pages." ")->result_array();
+        $query = "SELECT * from product where category like '%".$name."%' ORDER BY created_date DESC limit ". ((int)$pages - 15) .",".$pages." ";
+        $qr = $this->db->query($query)->result_array();
         return $qr;
     }
       

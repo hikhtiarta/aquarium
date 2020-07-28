@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <div> 
-    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
-      <img class="brand-img" src="<?php echo base_url('assets/img/brand6.png')?>" >
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top" style="justify-content: center;">
+      <span style="color: #fff; letter-spacing: 5px">AQUAWABISABI</span>
     </nav>
 </div>
 
@@ -22,15 +22,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="nav-item <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == "") echo "active"; ?>"><a href="<?= base_url() ?>" class="nav-link">Home</a></li>            
             <li class="nav-item <?php if($this->uri->segment(1) == "products") echo "active"; ?>"><a href="<?= base_url('products') ?>" class="nav-link">Produk</a></li>
             <li class="nav-item <?php if($this->uri->segment(1) == "post") echo "active"; ?>"><a href="<?= base_url('post') ?>" class="nav-link">Post</a></li>
-            <li class="nav-item <?php if($this->uri->segment(1) == "about") echo "active"; ?>"><a href="<?= base_url('about') ?>" class="nav-link">Tentang Kami<?=$this->uri->segment(3)?></a></li>
+            <li class="nav-item <?php if($this->uri->segment(1) == "about") echo "active"; ?>"><a href="<?= base_url('about') ?>" class="nav-link">Tentang Kami</a></li>
           </ul>
         </nav>
         <?php if($this->uri->segment(1) == "products") {?>
           <div class="navbar-2">
-            <?php foreach($title as $key=>$var) { if($key==count($title)-1) {?>
-              <span class="mr-2"><?= $var; ?></span>
+            <?php foreach($breadCrumbs as $key=>$var) { if($key==count($breadCrumbs)-1) {?>
+              <span class="mr-2"><?= $var['title']; ?></span>
             <?php } else{ ?>
-              <a href="" class="navbar-crumbs" ><?= $var ?></a> <span class="ml-2 mr-2">/</span>
+              <a href="<?= $var['url'] ?>" class="navbar-crumbs" ><?= $var['title'] ?></a> <span class="ml-2 mr-2">/</span>
             <?php }} ?>          
           </div>
         <?php } ?>

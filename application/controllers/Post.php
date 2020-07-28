@@ -15,17 +15,50 @@ class Post extends CI_Controller {
     }
 
     public function index(){
+      redirect(base_url('post/all/1'));
+    }
+
+    public function all(){
       $data = array(
-          'title' => "Post Page",            
+          'title' => "Post",
           'phone' => $this->phone,
           'address' => $this->address,
-          'email' => $this->email,
-      );
-      $this->load->view('pages/post',$data);   
+          'email' => $this->email,          
+      ); 
+      $page = 0;
+      // var_dump($this->uri); die;
+      if((int)$this->uri->segment(3) == 0){
+          redirect('post/all/1');
+      }else{
+          $page = (int)$this->uri->segment(3);
+      }                
+      $data['postList'] = $this->Post_model->getPostByPage(15 * (int)$page, '');
+      $this->load->view('pages/post',$data);         
     }
     
-    public function post_lookup_by_url(){
-        var_dump($this->Post_model->getUrl($this->uri->segment(2)));
+    public function post_lookup_by_url(){    
+        if($this->uri->segment(2) == 'all'){
+            redirect('post/');
+        }
+        $this->load->helper('Currency_helper');
+        $post = $this->Post_model->getUrl($this->uri->segment(2));
+        $post = (count($post) == 0 ? $post : $post[0]);
+        $data = array(
+            'title' => "Post",
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'email' => $this->email,   
+            'post' => $post,
+            'latestPost' => $this->Post_model->getPostLatestPage(6),
+            'breadCrumbs' => [
+                array(
+                    "title" => "Postingan",
+                    "url" => "post/"
+                )
+            ],       
+        );                         
+        $this->load->view('pages/post-detail',$data);    
+    
     }
 
 }

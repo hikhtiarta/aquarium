@@ -10,6 +10,12 @@ class Post_model extends CI_Model
         return $qr;
     }
 
+    public function getPostByPage($pages){                                
+        $query = "SELECT * from post ORDER BY created_date DESC limit ". ((int)$pages - 15) .",".$pages." ";
+        $qr = $this->db->query($query)->result_array();
+        return $qr;
+    }
+
     public function getPostById($id){                        
         $where = array( 'id' => $id);
         $qr = $this->db->get_where('post', $where )->result_array();           
@@ -17,7 +23,7 @@ class Post_model extends CI_Model
     }
     
     public function getPostLatestPage($index){                        
-        $qr = $this->db->query("SELECT * from post order by created_date limit ".$index." ")->result_array();
+        $qr = $this->db->query("SELECT * from post order by created_date desc limit ".$index." ")->result_array();
         return $qr;
     }
       
