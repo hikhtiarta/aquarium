@@ -3069,7 +3069,9 @@ body.layout-3 .main-footer {
   color: #ffffff;  
   display: inline-block;
   background: rgb(128,201,4);
-  background: linear-gradient(180deg, rgba(128,201,4,1) 0%, rgba(0,212,167,1) 47%, rgba(0,0,0,1) 100%);  width: 100%; }
+background: linear-gradient(180deg, rgba(128,201,4,1) 0%, rgba(0,0,0,1) 100%);
+  width: 100%;
+  }
   .main-footer .footer-left {
     float: left; }
   .main-footer .footer-right {
