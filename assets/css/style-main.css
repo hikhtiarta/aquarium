@@ -1929,6 +1929,9 @@ h6 .badge {
   display: flex; }
 
 @media (max-width: 575.98px) {
+  .margin-left-20 {
+    margin-left:30px;
+  }
   .founder-img{
     margin-left: 105px!important;
   }
@@ -3176,12 +3179,14 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   height:60px;
   bottom:40px;
   right:40px;
-  background-color:#0C9;
+  background-color:#27f5a6;
   color:#FFF;
   border-radius:10px;
   text-align:center;
   box-shadow: 2px 2px 3px #999;
-
+  border-radius: 50px;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 .icon-wa {
   margin-top: 10px;
@@ -3191,10 +3196,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .float-whatapps:hover {
-    background-color:#757575;
-    opacity:0.5;
-    border-radius:50px;
-}
+    opacity: 1;
+  }
 
 .font-bebas {
   font-family: Bebas Neu;
@@ -3219,5 +3222,28 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   margin-right: auto;
   width: 250px;
   height: 425px;
+
+}
+
+.float-whatapps .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 200px;
+  border-radius: 6px;
+  padding: 5px 0;
+  top: 18px;
+  right: 105%;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 10;
+}
+.float-whatapps:hover .tooltiptext {
+  visibility: visible;
+}
+
+.margin-left-20 {
 
 }
