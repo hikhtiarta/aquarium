@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p class="footer-title mb-2"><strong>Follow</strong></p>
             <a class="footer-link" href="">Instagram</a>
             <a class="footer-link" href="">Facebook</a>
-            <a class="footer-link" href="">Tokopedia</a> 
+            <a class="footer-link" href="">Tokopedia</a>
             <a class="footer-link" href="//api.whatsapp.com/send?phone==+62 81297991631&text=">Whatapps</a>               
           </div>
           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
@@ -42,8 +42,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </footer>
     </div>
   </div>
-  <a href="//api.whatsapp.com/send?phone==+62 81297991631&text=" class="float-whatapps">
-<img class="icon-wa" src="<?php echo base_url('assets/img/walogo.png')?>">
-</a>
+  <div class="float-whatapps">
+  <a href="//api.whatsapp.com/send?phone==+62 81297991631&text=">
+<img class="icon-wa" src="<?php echo base_url('assets/img/walogo.png')?>"> </a>
+<span class="tooltiptext">Contact Us</span>
+</div>
 
 <?php $this->load->view('dist/_partials/js-main'); ?>
