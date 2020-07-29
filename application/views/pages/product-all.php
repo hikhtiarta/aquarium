@@ -44,7 +44,7 @@ $this->load->view('dist/_partials/header-main');
               <?php }else{ ?>
                 <ul class="pagination">
                   <li class="page-item <?php if($this->uri->segment(3) == 1) echo 'disabled'; ?>">
-                    <a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">«</span></a>
+                  <a class="page-link" href="<?= base_url('products/all/'. ((int)$this->uri->segment(3)-1) ) ?>" tabindex="-1"><span aria-hidden="true">«</span></a>
                   </li>
                   <?php 
                     $fr = ((int)$this->uri->segment(3) % 2 == 1 ? (int)$this->uri->segment(3) : (int)$this->uri->segment(3)-1);
@@ -56,7 +56,7 @@ $this->load->view('dist/_partials/header-main');
                     <li class="page-item"><a class="page-link" href="<?= base_url('products/all/'. $i) ?>"><?= $i ?></a></li>  
                   <?php }} ?>              
                   <li class="page-item <?= (count($productList) != 15? 'disabled' : '') ?>">
-                    <a class="page-link" href="#"><span aria-hidden="true">»</span></a>
+                    <a class="page-link" href="<?= base_url('products/all/'. ((int)$this->uri->segment(3)+1) ) ?>"><span aria-hidden="true">»</span></a>
                   </li>
                 </ul>
               <?php } ?>

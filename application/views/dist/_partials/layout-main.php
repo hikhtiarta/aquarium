@@ -22,10 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="nav-item <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == "") echo "active"; ?>"><a href="<?= base_url() ?>" class="nav-link">Home</a></li>            
             <li class="nav-item <?php if($this->uri->segment(1) == "products") echo "active"; ?>"><a href="<?= base_url('products') ?>" class="nav-link">Produk</a></li>
             <li class="nav-item <?php if($this->uri->segment(1) == "post") echo "active"; ?>"><a href="<?= base_url('post') ?>" class="nav-link">Post</a></li>
+            <li class="nav-item <?php if($this->uri->segment(1) == "portfolio") echo "active"; ?>"><a href="<?= base_url('portfolio') ?>" class="nav-link">Portofolio</a></li>
             <li class="nav-item <?php if($this->uri->segment(1) == "about") echo "active"; ?>"><a href="<?= base_url('about') ?>" class="nav-link">Tentang Kami</a></li>
           </ul>
         </nav>
-        <?php if($this->uri->segment(1) == "products") {?>
+        <?php if($this->uri->segment(1) == "products" || $this->uri->segment(1) == "post") {?>
           <div class="navbar-2">
             <?php foreach($breadCrumbs as $key=>$var) { if($key==count($breadCrumbs)-1) {?>
               <span class="mr-2"><?= $var['title']; ?></span>

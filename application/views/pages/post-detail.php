@@ -41,9 +41,9 @@
                     <div class="sideright-title"><b><?= $var['title'] ?></b></div>
                     <p class="text-muted">
                       <?php
-                        $date = new DateTime($post['created_date']);
-                        if($post['updated_date'] == null){
-                          $date = new DateTime($post['updated_date']);
+                        $date = new DateTime($var['created_date']);
+                        if($var['updated_date'] == null){
+                          $date = new DateTime($var['updated_date']);
                         }
                         echo $date->format('d-m-Y');
                       ?>                              
@@ -52,10 +52,10 @@
                 </a>
               <?php } ?>
               <h5 class="mt-5">Tahun</h5>
-              <?php for($i = 2024; $i>=2019; $i--) {?>
-                <a href="" class="post-sideright-archive">
+              <?php foreach($archive as $var) {?>
+                <a href="<?= base_url('post/year/' .$var['year']. '/1' ); ?>" class="post-sideright-archive">
                   <i  class="fas fa-chevron-right mr-3"></i>
-                  <b><?= $i ?></b>
+                  <b><?= $var['year'] . " (" . $var['count'] . ")" ?></b>
                 </a>
               <?php } ?>
             </div>

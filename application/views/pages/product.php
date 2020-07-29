@@ -4,7 +4,7 @@ $this->load->view('dist/_partials/header-main');
 ?>
       <!-- Main Content -->
       <div class="main-content">
-        <h2 class="section-title text-center mt-8">Kategori Produk</h2>     
+        <!-- <h2 class="section-title text-center mt-8">Kategori Produk</h2>      -->
         <section class="section-category">          
           <div class="category-container">
             <?php foreach($categoryList as $var) {?>
