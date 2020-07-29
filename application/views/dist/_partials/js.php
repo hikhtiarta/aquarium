@@ -83,7 +83,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "modules_chartjs") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "post_list" || $this->uri->segment(2) == "product_list") { ?>  
+}elseif ($this->uri->segment(2) == "post_list" || $this->uri->segment(2) == "product_list" || $this->uri->segment(2) == "utilities_contactus") { ?>  
   <script src="<?php echo base_url(); ?>assets/modules/datatables/datatables.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
@@ -214,6 +214,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "product_list") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-datatables.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/product_list.js"></script>
+<?php
+}elseif ($this->uri->segment(2) == "utilities_contactus") { ?>
+  <script src="<?php echo base_url(); ?>assets/js/page/modules-datatables.js"></script>  
 <?php
 }elseif ($this->uri->segment(2) == "modules_ion_icons") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>

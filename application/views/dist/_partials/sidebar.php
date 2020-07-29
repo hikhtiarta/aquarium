@@ -29,10 +29,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="<?php echo $this->uri->segment(2) == 'product_list' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>admin/product_list">Daftar Produk</a></li>                
               </ul>
             </li>             
-            <li class="dropdown <?php echo $this->uri->segment(2) == 'utilities_category' ? 'active' : ''; ?>">
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'utilities_category' || $this->uri->segment(2) == 'utilities_contactus' ? 'active' : ''; ?>">
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i> <span>Utilities</span></a>
               <ul class="dropdown-menu">                
-                <li class="<?php echo $this->uri->segment(2) == 'utilities_category' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>admin/utilities_category">Jenis Produk</a></li>                
+                <li class="<?php echo $this->uri->segment(2) == 'utilities_category' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>admin/utilities_category">Jenis Produk</a></li>
+                <li class="<?php echo $this->uri->segment(2) == 'utilities_contactus' ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo base_url(); ?>admin/utilities_contactus">Daftar Pesan</a></li>                
               </ul>
             </li>            
           </ul>
