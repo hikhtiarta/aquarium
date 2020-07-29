@@ -16,7 +16,7 @@
 }
 
 .products-desc{
-  max-height: 95px;
+  max-height: 5rem;
   overflow: hidden;    
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -295,6 +295,21 @@
   display: -webkit-box;
   font-weight: 800;
   font-size: 16px;
+}
+
+.section-contactus{
+  padding: 0px 180px;
+  margin-bottom: 80px;
+}
+
+.map-container-2{
+  width: 100%;
+  height: 100%;
+}
+
+.map-container-2 iframe{
+  width: 100%;
+  height: 100%;
 }
 
 .pd-0{
@@ -3054,9 +3069,7 @@ body.layout-3 .main-footer {
   color: #ffffff;  
   display: inline-block;
   background: rgb(128,201,4);
-  background: linear-gradient(90deg, rgba(128,201,4,1) 0%, rgba(0,212,167,1) 100%); 
-  margin-bottom: -10px;
-  width: 100%; }
+  background: linear-gradient(180deg, rgba(128,201,4,1) 0%, rgba(0,212,167,1) 47%, rgba(0,0,0,1) 100%);  width: 100%; }
   .main-footer .footer-left {
     float: left; }
   .main-footer .footer-right {

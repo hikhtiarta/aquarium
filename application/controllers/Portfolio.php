@@ -10,15 +10,16 @@ class Portfolio extends CI_Controller {
         $qr = $this->User_model->getContact();
         $this->address = $qr[0]['address'];
         $this->phone = $qr[0]['phone'];
-        $this->email = $qr[0]['email'];
+        $this->csemail = $qr[0]['email'];
     }
     
-    public function index(){        
+    public function index(){       	
+
         $data = array(
             'title' => "Portofolio",            
             'phone' => $this->phone,
             'address' => $this->address,
-            'email' => $this->email,
+            'email' => $this->csemail,
         );
         $this->load->view('pages/portfolio',$data);        
     }
