@@ -19,12 +19,14 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index" || $this->
   <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyB55Np3_WsZwUQ9NS7DP-HnneleZLYZDNw&amp;sensor=true"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/gmaps.js"></script>
 <?php
 }elseif ($this->uri->segment(1) == "post") { ?>  
   <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat2.min.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "utilities_contact") { ?>
-  <script src="http://maps.google.com/maps/api/js?key=AIzaSyB55Np3_WsZwUQ9NS7DP-HnneleZLYZDNw&amp;sensor=true"></script>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyBrwDMvxm_P0wZInUUJI9aGFYQUY22rkl8&amp;sensor=true"></script>
   <script src="<?php echo base_url(); ?>assets/modules/gmaps.js"></script>
 <?php
 } ?>
@@ -33,6 +35,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index" || $this->
 <?php
 if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/index.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/utilities-contact.js"></script>
 <?php
 }elseif ($this->uri->segment(1) == "post") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-slider.js"></script>  
