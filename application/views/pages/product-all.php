@@ -56,7 +56,7 @@ $this->load->view('dist/_partials/header-main');
                     <li class="page-item"><a class="page-link" href="<?= base_url('products/all/'. $i) ?>"><?= $i ?></a></li>  
                   <?php }} ?>              
                   <li class="page-item <?= (count($productList) != 15? 'disabled' : '') ?>">
-                    <a class="page-link" href="#"><span aria-hidden="true">»</span></a>
+                    <a class="page-link" href="<?= base_url('products/all/'. ((int)$this->uri->segment(3)+1) ) ?>"><span aria-hidden="true">»</span></a>
                   </li>
                 </ul>
               <?php } ?>

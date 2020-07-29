@@ -90,6 +90,7 @@
   justify-content: flex-end;
 }
 .page-item.active .page-link{
+  border: none!important;
   color: #000!important;
   background-color: #FFF!important;
 }
@@ -1312,7 +1313,8 @@ table tr:hover .table-links {
   background-color: #6777ef;
   color: #fff;
   border-color: #6777ef; }
-.page-item-post.disabled .page-link {  
+.page-item-post.disabled .page-link { 
+  pointer-events: none; 
   border-color: transparent;
   background-color: #f9fafe;
   color: #6777ef;
