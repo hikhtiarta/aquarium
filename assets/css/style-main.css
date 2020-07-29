@@ -3069,7 +3069,7 @@ body.layout-3 .main-footer {
   color: #ffffff;  
   display: inline-block;
   background: rgb(128,201,4);
-background: linear-gradient(180deg, rgba(128,201,4,1) 0%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(180deg, rgba(128,201,4,1) 0%, rgba(0,0,0,1) 100%);
   width: 100%;
   }
   .main-footer .footer-left {
@@ -3327,4 +3327,10 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .round-box:hover {
  transform: scale(1.05);
  z-index: 1000;
+}
+
+.footer-img{
+  width: 100%;
+  height: auto;
+  margin: auto;
 }

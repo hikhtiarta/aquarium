@@ -48,4 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <span class="tooltiptext">Contact Us</span>
 </div>
 
+<div class="footer-img">
+<img class="footer-img" src="<?php echo base_url('assets/img/aquascape2.jpg')?>">
+
+
+</div>
 <?php $this->load->view('dist/_partials/js-main'); ?>
