@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="nav-item <?php if($this->uri->segment(1) == "about") echo "active"; ?>"><a href="<?= base_url('about') ?>" class="nav-link">Tentang Kami</a></li>
           </ul>
         </nav>
-        <?php if($this->uri->segment(1) == "products") {?>
+        <?php if($this->uri->segment(1) == "products" || $this->uri->segment(1) == "post") {?>
           <div class="navbar-2">
             <?php foreach($breadCrumbs as $key=>$var) { if($key==count($breadCrumbs)-1) {?>
               <span class="mr-2"><?= $var['title']; ?></span>

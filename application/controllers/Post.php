@@ -23,7 +23,12 @@ class Post extends CI_Controller {
           'title' => "Post",
           'phone' => $this->phone,
           'address' => $this->address,
-          'email' => $this->email,          
+          'email' => $this->email,   
+          'breadCrumbs' => [
+            array(
+                "title" => "Semua Postingan",                
+            )
+        ],       
       ); 
       $page = 0;
       // var_dump($this->uri); die;
@@ -32,7 +37,7 @@ class Post extends CI_Controller {
       }else{
           $page = (int)$this->uri->segment(3);
       }                
-      $data['postList'] = $this->Post_model->getPostByPage(15 * (int)$page, '');
+      $data['postList'] = $this->Post_model->getPostByPage(10 * (int)$page, '');
       $this->load->view('pages/post',$data);         
     }
     
@@ -52,8 +57,7 @@ class Post extends CI_Controller {
             'latestPost' => $this->Post_model->getPostLatestPage(6),
             'breadCrumbs' => [
                 array(
-                    "title" => "Postingan",
-                    "url" => "post/"
+                    "title" => "Postingan",                    
                 )
             ],       
         );                         

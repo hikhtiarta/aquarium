@@ -41,9 +41,9 @@
                     <div class="sideright-title"><b><?= $var['title'] ?></b></div>
                     <p class="text-muted">
                       <?php
-                        $date = new DateTime($post['created_date']);
-                        if($post['updated_date'] == null){
-                          $date = new DateTime($post['updated_date']);
+                        $date = new DateTime($var['created_date']);
+                        if($var['updated_date'] == null){
+                          $date = new DateTime($var['updated_date']);
                         }
                         echo $date->format('d-m-Y');
                       ?>                              
