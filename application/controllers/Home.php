@@ -60,8 +60,19 @@ class Home extends CI_Controller {
         $this->email->message('From : ' . $emailUser . '<br><br>' . 'Nama :' . $name . '<br><br>' . 'Pesan : <br><br>' . $msg);
 
         if($this->email->send()){
-            $this->session->set_flashdata("success", "Berhasil dikirim!");
-			redirect('/');
+            $data = array(
+                "name" => $name,
+                "email" => $emailUser,
+                "message" => $msg
+            );
+            $this->load->model('Contact_model');            
+            if($this->Contact_model->createContactUs($data)){
+                $this->session->set_flashdata("success", "Berhasil dikirim!");
+			    redirect('/');
+            }else{
+                $this->session->set_flashdata("error", "Gagal dikirim!");
+			    redirect('/');    
+            }         
         }else{
             $this->session->set_flashdata("error", "Gagal dikirim!");
 			redirect('/');

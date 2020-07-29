@@ -64,7 +64,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "modules_calendar") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/fullcalendar/fullcalendar.min.css">
 <?php
-}elseif ($this->uri->segment(2) == "post_list" || $this->uri->segment(2) == "product_list") { ?>
+}elseif ($this->uri->segment(2) == "post_list" || $this->uri->segment(2) == "product_list" || $this->uri->segment(2) == "utilities_contactus") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/datatables/datatables.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
@@ -145,6 +145,7 @@ if ($this->uri->segment(2) == "dashboard" ||
     $this->uri->segment(2) == "post_list" || 
     $this->uri->segment(2) == "product_create" || 
     $this->uri->segment(2) == "product_list" || 
+    $this->uri->segment(2) == "utilities_contactus" || 
     $this->uri->segment(2) == "utilities_category" ) {
   $this->load->view('dist/_partials/layout');
   $this->load->view('dist/_partials/sidebar');

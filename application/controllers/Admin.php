@@ -76,6 +76,15 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin/utilities_category', $data);
 	}
+	
+	public function utilities_contactus() {
+		$this->load->model('Contact_model');
+		$data = array(
+			'title' => "Daftar Pesan",
+			'contactUsList' => $this->Contact_model->getContactUs(),
+		);
+		$this->load->view('admin/utilities_contactus', $data);
+	}
 
 	public function post_create() {			
 		$data = array(
