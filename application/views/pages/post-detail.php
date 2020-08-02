@@ -22,7 +22,7 @@
               <div class="post-detail-content">
                 <?= $post['content'] ?>
               </div>
-              <div class="gallery">
+              <div class="gallery mt-3">
                 <?php foreach(json_decode($post['thumbnail']) as $key=>$var){ $i = $key+1; ?>
                   <div class="gallery-item <?php if($i>2) echo "gallery-hide"; elseif($i==2) echo "gallery-more"; ?>" data-image="<?php echo base_url('img/post/'.$var); ?>"  data-title="Post image <?= $i ?>">
                     <?php if($i==2){ ?> <div>+<?php echo count(json_decode($post['thumbnail']))-1; ?> </div> <?php } ?>
@@ -35,7 +35,7 @@
             <div class="post-sideright">
               <h5>POSTINGAN TERAKHIR</h5>
               <?php foreach($latestPost as $key=>$var) {?>
-                <a href="<?= base_url("post/" . $var['url']) ?>" class="post-sideright-latest mt-3">
+                <a href="<?= base_url("post/" . $var['url']) ?>" class="post-sideright-latest">
                   <img width="80" height="80" src="<?= base_url('img/post/'.json_decode($var['thumbnail'])[0] ); ?>" alt="Post <?= $key ?>"/>
                   <div class="ml-3">
                     <div class="sideright-title"><b><?= $var['title'] ?></b></div>

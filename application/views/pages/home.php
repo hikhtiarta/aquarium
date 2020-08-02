@@ -98,7 +98,7 @@ $this->load->view('dist/_partials/header-main');
                 <iframe class="location-maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.296750902128!2d106.83818511529519!3d-6.2245478626962685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7b590cefe15%3A0x23186dc3ec11369a!2sPT%20IDStar%20Cipta%20Teknologi!5e0!3m2!1sen!2sid!4v1595494297870!5m2!1sen!2sid" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 mt-4">
               <form method="POST" class="needs-validation" novalidate="" action="<?= base_url('home/send'); ?>">
                 <div class="row">
                   <div class="form-group col-md-12 col-12">

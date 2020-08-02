@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); $this->load->vie
       <!-- Main Content -->
       <div class="main-content">        
         <?php if(count($product) != 0){ ?>
-        <div class="product-detail-container mt-8">
+        <div class="product-detail-container">
           <div id="slide-product" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <?php foreach(json_decode($product['img']) as $key=>$var) {?>                    
