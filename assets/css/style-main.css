@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+#brand-navbar-sidebar{ 
+  display: none!important; }
+
 .postinganChartTitle{
   white-space: nowrap;
   width: 90%;
@@ -321,6 +324,13 @@
 
 .mgn-0{
   margin: 0!important;
+}
+
+.flex-center{  
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
 }
 
 .btn:focus,
@@ -2042,6 +2052,10 @@ h6 .badge {
     .collapse .navbar-nav {
       position: absolute; } }
 @media (max-width: 1024px) {
+  #brand-navbar-sidebar{ 
+    display: flex!important; }
+  #brand-navbar{ 
+    display: none!important; }
   .post-container{
     padding: 40px 100px;}
   .post-all-container{
@@ -3025,12 +3039,13 @@ body.layout-3 .main-footer {
         margin-right: 20px;
         text-align: center; }
       .main-sidebar .sidebar-menu li a span {
+        margin-left: 20px;
         margin-top: 3px;
         width: 100%; }
       .main-sidebar .sidebar-menu li a:hover {
         background-color: #fcfcfd; }
     .main-sidebar .sidebar-menu li.active a {
-      color: #6777ef;
+      color: #86c232;
       font-weight: 600;
       background-color: #fcfcfd; }
     .main-sidebar .sidebar-menu li.active ul.dropdown-menu {
@@ -3134,7 +3149,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu > li.active > a {
     transform: translateY(-50%);
     height: 25px;
     width: 4px;
-    background-color: #6777ef; }
+    background-color: #86c232; }
 body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-menu li a {
   padding-left: 61px;
   background-color: #fff; }

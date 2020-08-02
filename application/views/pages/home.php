@@ -16,7 +16,7 @@ $this->load->view('dist/_partials/header-main');
                 <div class="carousel-inner">                  
                   <?php foreach($bannerList as $key=>$var) {?>
                     <a href="<?= $var['url'] ?>" class="carousel-item <?php if($key == 0) echo "active"?>">
-                      <img class="d-block w-100" src="<?= base_url('img/banner/'.$var['img']) ?>" alt="Banner <?= $key+1 ?>">
+                      <img class="d-block w-100" style="height: 30vw;" src="<?= base_url('img/banner/'.$var['img']) ?>" alt="Banner <?= $key+1 ?>">
                     </a>
                   <?php } ?>                  
                 </div>
