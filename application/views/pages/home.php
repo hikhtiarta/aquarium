@@ -78,7 +78,7 @@ $this->load->view('dist/_partials/header-main');
               </div>      
             <?php } ?>
           </div> 
-          <div class="text-right"><a href="" class="btn btn-primary ">Lihat semua produk</a></div>
+          <div class="text-right"><a href="<?= base_url('products/all/1'); ?>" class="btn btn-primary ">Lihat semua produk</a></div>
         </section>
         <section class="section-contactus">
           <?php if($this->session->flashdata('error')){?>

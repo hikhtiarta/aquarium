@@ -173,8 +173,7 @@
     display: flex;
     flex: 1;
 }
-
-.section-products, .section-contactus{
+.section-products, .section-contactus{ 
   padding: 80px 100px 80px 100px;
 }
 
@@ -1329,18 +1328,18 @@ table tr:hover .table-links {
   opacity: .6; }
 
 .page-item-post .page-link {
-  color: #6777ef;
+  color: #86c232;
   border-radius: 3px;  
   margin: 0 3px; }
 .page-item-post.active .page-link {
-  background-color: #6777ef;
+  background-color: #86c232;
   color: #fff;
-  border-color: #6777ef; }
+  border-color: #86c232; }
 .page-item-post.disabled .page-link { 
   pointer-events: none; 
   border-color: transparent;
   background-color: #f9fafe;
-  color: #6777ef;
+  color: #86c232;
   opacity: .6; }
   
 .page-link {
@@ -2264,6 +2263,10 @@ a.dropdown-item {
 /* 4. Theme Style */
 /* 4.1 Misc */
 /* nunito-regular - latin */
+
+.futura-font{
+  font-family: futura-pt;
+}
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
@@ -2305,6 +2308,18 @@ a.dropdown-item {
     font-weight: 500;
     src: url("../fonts/BebasNeue-Regular.woff");
     }
+@font-face {
+    font-family: 'Futura Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/Futura-Medium.ttf");
+    }
+@font-face {
+    font-family: 'Futura Light';
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/Futura-Light-Font.ttf");
+    }
 :root {
   /* Colors */
   --primary: color(primary);
@@ -2325,6 +2340,16 @@ body {
   /* letter-spacing: 2px; */
   /* color: #6c757d;  */
   }
+
+.font-futura-medium {
+  font-family: Futura Medium;
+}
+
+.font-futura-light {
+  font-family: Futura Light;
+}
+
+
 
 a.bb {
   text-decoration: none;
@@ -3065,14 +3090,16 @@ body.layout-3 .main-footer {
   /* margin-top: 40px; */
   color: #ffffff;  
   display: inline-block;
-  background-color: #8cbe38;  
-  margin-bottom: -10px;
-  width: 100%; }
+  background: rgb(128,201,4);
+  background: linear-gradient(180deg, rgba(128,201,4,1) 0%, rgba(0,0,0,1) 100%);
+  width: 100%;
+  }
   .main-footer .footer-left {
     float: left; }
   .main-footer .footer-right {
     float: right; }
   .main-footer .footer-title{
+    font-family: sans-serif!important;
   }
   .main-footer .footer-link{
     /* text-decoration: none; */
@@ -3289,5 +3316,43 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .margin-left-20 {
+}
 
+.video-portopolio {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.custom-shadow {
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  padding: 80px 100px 80px 100px;
+}
+
+.round-box {
+  border: 5px black;
+  border-radius: 5px;  
+}
+
+.round-box:hover {
+ transform: scale(1.05);
+ z-index: 1000;
+}
+
+.footer-img{
+  width: 100%;
+  height: auto;
+  margin: auto;
 }
