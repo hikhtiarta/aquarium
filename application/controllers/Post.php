@@ -48,8 +48,8 @@ class Post extends CI_Controller {
           redirect('post/all/1');
       }else{
           $page = (int)$this->uri->segment(3);
-      }                
-      $data['postList'] = $this->Post_model->getPostByPage(10 * (int)$page, '');
+      }             
+      $data['postList'] = $this->Post_model->getPostByPage(10 * (int)$page, '');      
       $this->load->view('pages/post',$data);         
     }
 

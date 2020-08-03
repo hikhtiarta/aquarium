@@ -31,7 +31,7 @@ $this->load->view('dist/_partials/header-main');
                   <?php 
                     $fr = ((int)$this->uri->segment(4) % 2 == 1 ? (int)$this->uri->segment(4) : (int)$this->uri->segment(4)-1);
                     $ls = ((int)$this->uri->segment(4) % 2 == 1 ? (int)$this->uri->segment(4)+1 : (int)$this->uri->segment(4));
-                    $ls =  (count($productList) != 15 && (int)$this->uri->segment(4) % 2 == 1  ? $fr : $ls);
+                    $ls =  (count($productList) != 15 && (int)$this->uri->segment(4) % 2 == 1 ? $fr : $ls);
                     for($i = $fr; $i<=$ls; $i++){ if($this->uri->segment(4) == $i) { ?>
                     <li class="page-item active"><a class="page-link" href="<?= base_url('products/category/'. $category . "/" . $i) ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>  
                   <?php }else { ?>  
@@ -49,7 +49,7 @@ $this->load->view('dist/_partials/header-main');
                   <?php 
                     $fr = ((int)$this->uri->segment(3) % 2 == 1 ? (int)$this->uri->segment(3) : (int)$this->uri->segment(3)-1);
                     $ls = ((int)$this->uri->segment(3) % 2 == 1 ? (int)$this->uri->segment(3)+1 : (int)$this->uri->segment(3));
-                    $ls =  (count($productList) != 15 && (int)$this->uri->segment(4) % 2 == 1  ? $fr : $ls);
+                    $ls =  (count($productList) != 15 && (int)$this->uri->segment(3) % 2 == 1 ? $fr : $ls);
                     for($i = $fr; $i<=$ls; $i++){ if($this->uri->segment(3) == $i) {?>
                     <li class="page-item active"><a class="page-link" href="<?= base_url('products/all/'. $i) ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>  
                   <?php }else { ?>  

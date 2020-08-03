@@ -16,7 +16,7 @@ class Post_model extends CI_Model
     }
 
     public function getPostByPage($pages, $where){                                
-        $query = "SELECT * from post where created_date like '%".$where."%' ORDER BY created_date DESC limit ". ((int)$pages - 10) .",".$pages." ";
+        $query = "SELECT * from post where created_date like '%".$where."%' ORDER BY created_date DESC limit ". ((int)$pages - 10) .",10";        
         $qr = $this->db->query($query)->result_array();
         return $qr;
     }
