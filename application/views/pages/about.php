@@ -4,9 +4,9 @@ $this->load->view('dist/_partials/header-main');
 ?>
       <!-- Main Content -->
       <div class="main-content">
-         <div class="bg-white">
+         <div class="bg-white custom-shadow ">
           <div class="container py-5 about-main2">
-            <div class="row h-100 align-items-center py-5">
+            <div class="row h-100 align-items-center">
               <div class="col-lg-6 col-md-6">
                 <h1 class="font-bebas">Tentang Kami</h1>
                 <p class="lead mb-0 font-green">AQUA WABISABI</p>
@@ -23,7 +23,8 @@ $this->load->view('dist/_partials/header-main');
           </div>
         </div>
       </div>
-        <div class="bg-white">
+
+        <div class="bg-white custom-shadow ">
           <div class="container about-main py-5">
             <div class="row">
               <div class="col-lg-6 col-md-6">
