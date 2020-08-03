@@ -32,10 +32,11 @@ $this->load->view('dist/_partials/header-main');
             </div>                                      
           </div>                
         </section>
+      <div>
         <div class="container py-5 about-main2">
           <div class="row h-100 align-items-center py-5">
             <div class="col-lg-6 col-md-6 margin-left-20">
-              <h1 class="font-bebas"><u>Pendiri Aqua wabisabi</u></h1>
+              <h1 class="font-bebas">Pendiri Aqua wabisabi</h1>
               <p class="lead mb-0 font-green">Rhandy Ibrahim</p>
               <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -48,8 +49,9 @@ $this->load->view('dist/_partials/header-main');
               <img class="founder-img" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
             </div>
           </div>
-        </div>        
-        <section class="section-products">
+        </div>
+      </div>        
+        <section class="section-products custom-shadow ">
           <h2 class="section-title text-center mb-8">Produk Terbaru</h2>          
           <div class="row">
             <?php foreach($productList as $key=>$var) {?>      
