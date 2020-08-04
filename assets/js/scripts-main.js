@@ -171,7 +171,7 @@ $(function() {
       update_sidebar_nicescroll();
     }else{
       $("#toggle-sidebar").addClass('toggle-gone');
-      // body.removeClass('search-show search-gone');
+      body.removeClass('search-show search-gone');
       // if(body.hasClass('sidebar-mini')) {
       //   toggle_sidebar_mini(false);
       // }else{
@@ -217,17 +217,17 @@ $(function() {
   toggleLayout();
   $(window).resize(toggleLayout);
 
-  $("[data-toggle='search']").click(function() {
-    var body = $("body");
+  // $("[data-toggle='search']").click(function() {
+  //   var tag = $("#sp-element");
 
-    if(body.hasClass('search-gone')) {
-      body.addClass('search-gone');
-      body.removeClass('search-show');
-    }else{
-      body.removeClass('search-gone');
-      body.addClass('search-show');
-    }
-  });
+  //   if(tag.hasClass('search-gone')) {
+  //     tag.addClass('search-gone');
+  //     tag.removeClass('search-show');
+  //   }else{
+  //     tag.removeClass('search-gone');
+  //     tag.addClass('search-show');
+  //   }
+  // });
 
   // tooltip
   $("[data-toggle='tooltip']").tooltip();
