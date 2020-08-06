@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed'); $this->load->view('dist/_partials/header-main'); ?>
       <!-- Main Content -->
-      <div class="main-content">        
+      <div class="main-content">
         <?php if(count($product) != 0){ ?>
-        <div class="product-detail-container">
           <div id="slide-product" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <?php foreach(json_decode($product['img']) as $key=>$var) {?>                    
@@ -26,7 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); $this->load->vie
               <span class="sr-only">Next</span>
             </a>
           </div>
-          <div class="row mt-8">          
+        <?php } ?>
+        <?php if(count($product) != 0){ ?>
+        <div class="product-detail-container">          
+          <div class="row">          
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
               <h5 class="product-detail-title"><?= $product['name'] ?></h5>
               <h5 class="product-detail-price">Rp <?= rupiah($product['price']) ?></h5>

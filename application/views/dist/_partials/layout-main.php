@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <form name="searchform" id="" method="get" action="//www.google.co.id/search">
           <div class="form-group mgn-0">
             <div class="input-group">
-              <input name="q" class="form-control" type="search" placeholder="Search" aria-label="Search" autofocus>
+              <input name="q" class="form-control py-3" type="search" placeholder="Search" aria-label="Search" autofocus>
               <div class="input-group-append">
                 <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>        
               </div>

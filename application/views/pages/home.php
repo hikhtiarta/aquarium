@@ -32,9 +32,9 @@ $this->load->view('dist/_partials/header-main');
             </div>                                      
           </div>                
         </section>      
-        <div class="container py-5 about-main2">
-          <div class="row h-100 align-items-center py-5">
-            <div class="col-lg-6 col-md-6 margin-left-20">
+        <div class="section-about">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
               <h1 class="font-bebas">Pendiri Aqua wabisabi</h1>
               <p class="lead mb-0 font-green">Rhandy Ibrahim</p>
               <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -44,8 +44,8 @@ $this->load->view('dist/_partials/header-main');
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat n
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>
             </div>
-            <div class="col-lg-6 col-md-6">
-              <img class="founder-img" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
+            <div class="col-lg-6 col-md-6 flex-center mt-3">
+              <img width="250" height="425" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
             </div>
           </div>
         </div>      
