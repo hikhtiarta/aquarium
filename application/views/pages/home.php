@@ -31,8 +31,7 @@ $this->load->view('dist/_partials/header-main');
               </div>
             </div>                                      
           </div>                
-        </section>
-      <div>
+        </section>      
         <div class="container py-5 about-main2">
           <div class="row h-100 align-items-center py-5">
             <div class="col-lg-6 col-md-6 margin-left-20">
@@ -49,9 +48,8 @@ $this->load->view('dist/_partials/header-main');
               <img class="founder-img" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
             </div>
           </div>
-        </div>
-      </div>        
-        <section class="section-products custom-shadow ">
+        </div>      
+        <section class="section-products sep-line ">
           <h2 class="section-title text-center mb-8">Produk Terbaru</h2>          
           <div class="row">
             <?php foreach($productList as $key=>$var) {?>      
@@ -82,7 +80,7 @@ $this->load->view('dist/_partials/header-main');
           </div> 
           <div class="text-right"><a href="<?= base_url('products/all/1'); ?>" class="btn btn-primary ">Lihat semua produk</a></div>
         </section>
-        <section class="section-contactus">
+        <section class="section-contactus sep-line ">
           <?php if($this->session->flashdata('error')){?>
             <div class="alert alert-danger">
               <?= $this->session->flashdata('error') ?>

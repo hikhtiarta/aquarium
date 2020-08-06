@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/aquarium/';
-
+// $config['base_url'] = 'http://192.168.1.9/aquarium/';
 /*
 |--------------------------------------------------------------------------
 | Index File

@@ -51,6 +51,7 @@ $('[data-confirm]').each(function() {
 
 // Global
 $(function() {
+
   let sidebar_nicescroll_opts = {
     cursoropacitymin: 0,
     cursoropacitymax: .8,
