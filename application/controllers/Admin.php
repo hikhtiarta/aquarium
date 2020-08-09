@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 
 	public function page_about() {
 		$this->load->model('User_model');
-		$qr = $this->User_model->getuser()[0];
+		$qr = $this->User_model->getuser()[0];		
 		$data = array(
 			'title' => "About",			
 			'user' => $qr
@@ -355,6 +355,7 @@ class Admin extends CI_Controller {
 		$name = $this->input->post('name');
 		$tokoName = $this->input->post('toko_name');
 		$email = $this->input->post('email');
+		$emailPassword = $this->input->post('emailPassword');
 		$phone = $this->input->post('phone');
 		$address = $this->input->post('address');
 		$bio = $this->input->post('bio');		
@@ -362,6 +363,7 @@ class Admin extends CI_Controller {
 			'name' => $name,
 			'toko_name' => $tokoName,
 			'email' => $email,
+			'email_password' => $emailPassword,
 			'phone' => $phone,
 			'address' => $address,
 			'bio' => $bio

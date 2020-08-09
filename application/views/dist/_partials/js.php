@@ -75,7 +75,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "utilities_contact") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/utilities-contact.js"></script>
 <?php
-} ?>
+}elseif ($this->uri->segment(2) == "page_about") { ?>
+  <script src="<?php echo base_url(); ?>assets/js/page/page_about.js"></script>
+<?php } ?>
 
   <!-- Template JS File -->
   <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>

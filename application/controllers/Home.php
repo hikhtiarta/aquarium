@@ -30,12 +30,15 @@ class Home extends CI_Controller {
 
     public function send(){
 
+        $this->load->model('User_model');
+        $user = $this->User_model->getEmailAndPassword()[0];
+
         $name = $this->input->post('name');
         $emailUser = $this->input->post('email');
         $msg = $this->input->post('message');
 
-        $officeEmail = 'XXX';
-        $officePassword = "XXX";
+        $officeEmail = $user['email'];
+        $officePassword = $user['emailPassword'];
 
         $config = Array(
             'protocol' => 'smtp',

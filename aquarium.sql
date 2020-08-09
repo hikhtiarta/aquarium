@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Agu 2020 pada 16.52
+-- Waktu pembuatan: 10 Agu 2020 pada 01.26
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.10
 
@@ -90,7 +90,8 @@ CREATE TABLE `contactus` (
 
 INSERT INTO `contactus` (`id`, `name`, `email`, `message`, `created_date`) VALUES
 (1, 'Hasan Ikhtiarta', 'hasan.ikhtiarta@gmail.com', 'Bagus!', '2020-07-29 15:44:42'),
-(2, '321', '312', '312 321', '2020-07-29 16:23:37');
+(2, '321', '312', '312 321', '2020-07-29 16:23:37'),
+(3, 'Hasan Ikhtiarta', 'hasan.ikhtiarta@gmail.com', 'adasd asd a da sad', '2020-08-09 23:24:36');
 
 -- --------------------------------------------------------
 
@@ -205,6 +206,7 @@ CREATE TABLE `user` (
   `name` text NOT NULL,
   `toko_name` text NOT NULL,
   `email` varchar(50) NOT NULL,
+  `email_password` text NOT NULL,
   `phone` varchar(20) NOT NULL,
   `address` text NOT NULL,
   `bio` text NOT NULL
@@ -214,8 +216,8 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `name`, `toko_name`, `email`, `phone`, `address`, `bio`) VALUES
-('1', 'admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'admin', 'aquawabisabi', 'aquawabisabi', 'hasan.ikhtiarta@gmail.com', '081297991631', 'Wisma Staco 7th floor, Jl. Casablanca, RT.4/RW.12, Menteng Dalam, Tebet, South Jakarta City, Jakarta 12960', '<b>Toko ikan dsa das</b>');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `name`, `toko_name`, `email`, `email_password`, `phone`, `address`, `bio`) VALUES
+('1', 'admin', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'admin', 'aquawabisabi', 'aquawabisabi', 'hikhtiarta@gmail.com', '12345', '081297991631', 'Wisma Staco 7th floor, Jl. Casablanca, RT.4/RW.12, Menteng Dalam, Tebet, South Jakarta City, Jakarta 12960', '<b>Toko ikan dsa das</b>');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +279,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT untuk tabel `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `post`

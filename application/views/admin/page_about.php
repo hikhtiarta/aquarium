@@ -41,11 +41,22 @@ $this->load->view('dist/_partials/header');
                           </div>                          
                         </div>
                         <div class="row">
-                          <div class="form-group col-md-7 col-12">
+                          <div class="form-group col-md-4 col-12">
                             <label>Email</label>
-                            <input type="email" class="form-control" value="<?= $user['email'] ?>" name="email"/>
+                            <input type="email" class="form-control" value="<?= $user ['email'] ?>" name="email"/>
                           </div>
-                          <div class="form-group col-md-5 col-12">
+                          <div class="form-group col-md-4 col-12">
+                            <label>Email Password</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                  <i class="fas fa-eye-slash"  id="emailPasswordIcon"></i>
+                                </div>
+                              </div>
+                              <input  id="emailPassword" type="password" class="form-control" value="<?= $user['email_password'] ?>" name="emailPassword"/>
+                            </div>                                                      
+                          </div>
+                          <div class="form-group col-md-4 col-12">
                             <label>No. HP</label>
                             <input type="tel" class="form-control" value="<?= $user['phone'] ?>" name="phone">
                           </div>
