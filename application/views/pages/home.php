@@ -31,24 +31,20 @@ $this->load->view('dist/_partials/header-main');
               </div>
             </div>                                      
           </div>                
-        </section>      
-        <div class="section-about">
-          <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6">
-              <h1 class="font-bebas">Pendiri Aqua wabisabi</h1>
-              <p class="lead mb-0 font-green">Rhandy Ibrahim</p>
-              <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat n
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</b>
-            </div>
-            <div class="col-lg-6 col-md-6 flex-center mt-3">
-              <img width="250" height="425" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
-            </div>
-          </div>
-        </div>      
+        </section>    
+      <div class="main-content founder-background"> 
+        <div class="text-center founder-text">
+        <h1 class="display-4 font-RobotoCondensed-Bold head-text-founder">Founder Aquawabisabi</h1>
+        <p class="lead font-weight-normal">Dedy Junaedi</p>
+        <p>World International Aquascape Ranking.</p>
+        <a class="btn btn-outline-secondary" href="<?= base_url('portfolio')?>">Portofolio</a>
+      </div>
+      <div class="product-device box-shadow d-none d-md-block"></div>
+      <div class="product-device product-device-2 box-shadow d-none d-md-block">  </div>
+    </div>
+      </div>
+    </div>
+
         <section class="section-products sep-line ">
           <h2 class="section-title text-center mb-8">Produk Terbaru</h2>          
           <div class="row">
