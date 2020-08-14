@@ -36,8 +36,8 @@ $this->load->view('dist/_partials/header-main');
         <div class="text-center founder-text">
         <h1 class="display-4 font-RobotoCondensed-Bold head-text-founder">Founder Aquawabisabi</h1>
         <p class="lead font-weight-normal">Dedy Junaedi</p>
-        <p>World International Aquascape Ranking.</p>
-        <a class="btn btn-outline-secondary" href="<?= base_url('portfolio')?>">Portofolio</a>
+        <p>World International Aquascape Ranking & NSHC Nordic Scaper Hardscape Challenge</p>
+        <a class="btn btn-primary" href="<?= base_url('portfolio')?>">Portofolio</a>
       </div>
       <div class="product-device box-shadow d-none d-md-block"></div>
       <div class="product-device product-device-2 box-shadow d-none d-md-block">  </div>

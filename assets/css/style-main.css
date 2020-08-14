@@ -1987,6 +1987,7 @@ h6 .badge {
   .category-container, .section-latest, .section-about, .product-detail-container, .post-container, .section-portfolio {
     padding: 80px 40px!important;}
   .video-portofolio{
+    margin-left: 50px!important;
     margin-top: -10px!important;
     height: 312px!important;
     width: 312px!important;}
@@ -2050,6 +2051,7 @@ h6 .badge {
     width: 100%;
     height: 100vh;}
   .video-portofolio{
+    margin-left: 75px!important;
     margin-top: 50px!important;
     height: 100%!important;
     width: 412px!important; }
@@ -2080,6 +2082,7 @@ h6 .badge {
     width: 150px!important;
   }
   .video-portofolio{
+    margin-left: 75px!important;
   margin-top: 20px!important;
   height: 100%!important;
   width: 632px!important; }
@@ -2148,7 +2151,7 @@ h6 .badge {
         color: #fff; }
 @media(min-width: 1025px) and (max-width: 1872px) {
   .head-text-founder{
-    font-size: 34px!important;
+    font-size: 24px!important;
   }
   .founder-text{
     padding-top: 15px!important;
