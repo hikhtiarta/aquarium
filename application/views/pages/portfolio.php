@@ -3,15 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('dist/_partials/header-main');
 ?>
   <!-- Main Content -->
-  <div class="main-content">    
-      <div class="section-portfolio bg-black">
-        <h1 class="font-bebas text-center">Our Master Piece</h1>
-        <div class="row h-100 align-items-center py-5">                      
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <video class="video-portofolio" autoplay loop controls src="<?php echo base_url('assets/video/test.mp4')?>">
+  <div class="main-content">                        
+            <video class="video-portofolio" autoplay loop src="<?php echo base_url('assets/video/test.mp4')?>">
             </video>
-          </div>
-        </div>      
+     </div>      
       </div>      
       <section class="section-portfolio">        
         <div class="row pb-5 align-items-center">

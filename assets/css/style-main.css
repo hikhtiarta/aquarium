@@ -1987,10 +1987,9 @@ h6 .badge {
   .category-container, .section-latest, .section-about, .product-detail-container, .post-container, .section-portfolio {
     padding: 80px 40px!important;}
   .video-portofolio{
-    margin-left: 50px!important;
-    margin-top: -10px!important;
-    height: 312px!important;
-    width: 312px!important;}
+    margin-top: 0;
+    margin-bottom:-200px; 
+  }
   .post-sideright{
     padding: 0px; margin-top: 20px;}
   .margin-left-20 {
@@ -2077,8 +2076,8 @@ h6 .badge {
     .head-text-founder{
     font-size: 24px!important;
   }
-  .founder-text{
-    padding-top: 15px!important;
+    .founder-text{
+      padding-top: 15px!important;
     width: 150px!important;
   }
   .video-portofolio{
@@ -3419,10 +3418,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .video-portofolio {
-  width: 100%  ;
-  height: 512px;
-  margin: 0;
-  padding: 0;
+ background-size: cover;
+ width: 100%;
+ height: 100%;
 }
 
 .bd-placeholder-img {
@@ -3471,7 +3469,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   background-image:url(../img/founder-bck.jpg);
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: -250px;
+  margin-bottom: -450px;
 }
 
 .founder-text{
