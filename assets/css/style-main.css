@@ -3343,25 +3343,24 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .float-whatapps {
-
   position:fixed;
   width:60px;
   height:60px;
   bottom:40px;
   right:40px;
-  background-color:#27f5a6;
+  background-color:;
   color:#FFF;
   border-radius:10px;
   text-align:center;
   box-shadow: 2px 2px 3px #999;
   border-radius: 50px;
-  opacity: 0.5;
+  opacity: 0.7;
   transition: 0.3s;
 }
 .icon-wa {
-  margin-top: 10px;
-  width: 40px;
-  height: 40px
+  margin-top: 5px;
+  width: 50px;
+  height: 50px
 
 }
 
