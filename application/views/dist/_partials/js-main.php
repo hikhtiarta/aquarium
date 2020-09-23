@@ -8,7 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="<?php echo base_url(); ?>assets/modules/bootstrap/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/moment.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/stisla.js"></script>  
+  <script src="<?php echo base_url(); ?>assets/js/stisla.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/aos.js"></script>
+  <script>
+    AOS.init();
+  </script> 
   
   <!-- JS Libraies -->
 <?php

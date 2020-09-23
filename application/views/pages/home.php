@@ -35,7 +35,7 @@ $this->load->view('dist/_partials/header-main');
         <div class="section-about">
           <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
-              <h1 class="font-bebas">Pendiri Aqua wabisabi</h1>
+              <h1 class="font-bebas" data-aos="fade-up">Pendiri Aqua wabisabi</h1>
               <p class="lead mb-0 font-green">Rhandy Ibrahim</p>
               <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -50,7 +50,7 @@ $this->load->view('dist/_partials/header-main');
           </div>
         </div>      
         <section class="section-products sep-line ">
-          <h2 class="section-title text-center mb-8">Produk Terbaru</h2>          
+          <h2 class="section-title text-center mb-8" data-aos="fade-up">Produk Terbaru</h2>          
           <div class="row">
             <?php foreach($productList as $key=>$var) {?>      
               <div class="col-12 col-sm-6 col-md-6 col-lg-3">
@@ -91,7 +91,7 @@ $this->load->view('dist/_partials/header-main');
               <?= $this->session->flashdata('success') ?>
             </div>
           <?php }?> 
-          <h2 class="section-title text-center mb-8">Contact Us</h2>          
+          <h2 class="section-title text-center mb-8" data-aos="fade-up">Contact Us</h2>          
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">              
               <div id="map-container-google-2" class="z-depth-1-half map-container-2">
