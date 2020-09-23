@@ -1969,6 +1969,14 @@ h6 .badge {
   display: flex; }
 
 @media (max-width: 575.98px) {
+  .head-text-founder{
+    font-size: 20px!important;
+  }
+  .founder-text{
+    padding-top: 5px!important;
+    width: 100px!important;
+    font-size: 10px!important;
+  }
   #slide-product{
     width: 100%;
     height: 400px;}
@@ -1979,9 +1987,9 @@ h6 .badge {
   .category-container, .section-latest, .section-about, .product-detail-container, .post-container, .section-portfolio {
     padding: 80px 40px!important;}
   .video-portofolio{
-    margin-top: -10px!important;
-    height: 312px!important;
-    width: 312px!important;}
+    margin-top: 0;
+    /* margin-bottom:-200px;  */
+  }
   .post-sideright{
     padding: 0px; margin-top: 20px;}
   .margin-left-20 {
@@ -2031,10 +2039,18 @@ h6 .badge {
   .navbar .nav-link.nav-link-lg div {
     display: none; } }
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .head-text-founder{
+    font-size: 24px!important;
+  }
+  .founder-text{
+    padding-top: 15px!important;
+    width: 125px!important;
+  }
   #slide-product{
     width: 100%;
     height: 100vh;}
   .video-portofolio{
+    margin-left: 75px!important;
     margin-top: 50px!important;
     height: 100%!important;
     width: 412px!important; }
@@ -2057,10 +2073,18 @@ h6 .badge {
   .navbar .form-inline .search-element {
     display: block; } }
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .head-text-founder{
+    font-size: 24px!important;
+  }
+    .founder-text{
+      padding-top: 15px!important;
+    width: 150px!important;
+  }
   .video-portofolio{
-  margin-top: 20px!important;
-  height: 100%!important;
-  width: 632px!important; }
+    margin-left: 75px!important;
+    margin-top: 20px!important;
+    height: 100%!important;
+    width: 632px!important; }
   .post-sideright{
     padding: 0px; margin-top: 20px;}
   .section-products, .section-contactus, .post-all-container, .section-all-products,
@@ -2078,6 +2102,13 @@ h6 .badge {
     .collapse .navbar-nav {
       position: absolute; } }
 @media (max-width: 1024px) {
+   .head-text-founder{
+    font-size: 24px!important;
+  }
+  .founder-text{
+    padding-top: 15px!important;
+    width: 150px!important;
+  }
   .pagination-container{
     margin: 40px 0 0 0!important;}
   .not-found{
@@ -2117,7 +2148,16 @@ h6 .badge {
       .nav-collapse .navbar-nav .nav-item:focus > a, .nav-collapse .navbar-nav .nav-item.active > a {
         background-color: #6777ef;
         color: #fff; }
+@media(min-width: 1025px) and (max-width: 1872px) {
+  .head-text-founder{
+    font-size: 24px!important;
+  }
+  .founder-text{
+    padding-top: 15px!important;
+    width: 250px!important;
+  }
 
+}
   .navbar {
     left: 5px;
     right: 0; }
@@ -3303,25 +3343,24 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .float-whatapps {
-
   position:fixed;
   width:60px;
   height:60px;
   bottom:40px;
   right:40px;
-  background-color:#27f5a6;
+  /* background-color:; */
   color:#FFF;
   border-radius:10px;
   text-align:center;
   box-shadow: 2px 2px 3px #999;
   border-radius: 50px;
-  opacity: 0.5;
+  opacity: 0.7;
   transition: 0.3s;
 }
 .icon-wa {
-  margin-top: 10px;
-  width: 40px;
-  height: 40px
+  margin-top: 5px;
+  width: 50px;
+  height: 50px
 
 }
 
@@ -3378,10 +3417,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .video-portofolio {
-  width: 100%  ;
-  height: 512px;
-  margin: 0;
-  padding: 0;
+ background-size: cover;
+ width: 100%;
+ height: 100%;
 }
 
 .bd-placeholder-img {
@@ -3423,4 +3461,15 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
 .min-top-50 {
   margin-top: -50px;
+}
+
+.founder-background{  
+  background-image:url(../img/founder-bck.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 80px;
+}
+
+.founder-text{
+  padding-top: 100px;
 }

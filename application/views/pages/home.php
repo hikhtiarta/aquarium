@@ -48,7 +48,17 @@ $this->load->view('dist/_partials/header-main');
               <img width="250" height="425" src="<?php echo base_url('assets/img/founder.png')?>" alt="">
             </div>
           </div>
-        </div>      
+        </div>                 
+        <div class="founder-background"> 
+          <div class="text-center founder-text">
+            <h1 class="display-4 font-RobotoCondensed-Bold head-text-founder">Founder Aquawabisabi</h1>
+            <p class="lead font-weight-normal">Dedy Junaedi</p>
+            <p>World International Aquascape Ranking & NSHC Nordic Scaper Hardscape Challenge</p>
+            <a class="btn btn-primary" href="<?= base_url('portfolio')?>">Portofolio</a>
+          </div>
+         
+        </div>    
+
         <section class="section-products sep-line ">
           <h2 class="section-title text-center mb-8" data-aos="fade-up">Produk Terbaru</h2>          
           <div class="row">
